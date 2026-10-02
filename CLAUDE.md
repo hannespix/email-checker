@@ -1,11 +1,13 @@
 # E-Mail-Checker („Pix & fertig“)
 
-Statische Single-File-Webanwendung (`index.html`) zum Prüfen von E-Mail-Adressen aus Excel.
+Statische Single-File-Webanwendung (`index.html`) zum Prüfen von E-Mail-Adressen aus Excel, dazu ein Impressum (`impressum.html`).
 Live unter **https://hannespix.github.io/email-checker/** (GitHub Pages).
 
 ## Dateien
 
-- `index.html` – die komplette Anwendung (kein Build, keine Abhängigkeiten, keine externen Ressourcen)
+- `index.html` – die komplette Anwendung (kein Build, keine Abhängigkeiten, keine externen Ressourcen), unten mit Fußzeile und Link aufs Impressum
+- `impressum.html` – Impressum im Look der Anwendung. Die Angaben entsprechen dem Impressum von pix-el.de
+  (Repo `hannespix/pix-el`, `src/App.jsx`, `ImpressumContent`). Ändern sich Name, Anschrift oder E-Mail, beide Stellen anpassen.
 - `.nojekyll` – verhindert eine Jekyll-Verarbeitung durch Pages
 - `lizenzen/OFL-Jersey-10.txt` – Lizenz der eingebetteten Schrift „Jersey 10“
 - `README.md` – Beschreibung für Nutzer
@@ -21,17 +23,54 @@ Dann ohne Rückfrage diesen Ablauf durchführen:
 2. **Feature-Branch.** Nie direkt auf `main` arbeiten. Branch von `main` abzweigen, Dateien einspielen.
    Enthält das README wieder den Platzhalter `https://BENUTZERNAME.github.io/pix-und-fertig/`,
    durch `https://hannespix.github.io/email-checker/` ersetzen.
-3. **Commit & Push** des Branches.
-4. **Pull Request gegen `main`** erstellen und **sofort mergen** (Merge-Commit).
+3. **Impressum erhalten.** Bringt das Update eine neue `index.html` ohne Link auf `impressum.html` mit,
+   die Fußzeile wieder einsetzen (siehe „Impressum-Fußzeile“ unten). `impressum.html` bleibt, wie sie ist.
+4. **Commit & Push** des Branches.
+5. **Pull Request gegen `main`** erstellen und **sofort mergen** (Merge-Commit).
    Nicht auf Review warten – der Merge ist ausdrücklich beauftragt.
-5. **Deployment prüfen.** Der Merge startet den Workflow „Deploy to GitHub Pages“ (Actions).
+6. **Deployment prüfen.** Der Merge startet den Workflow „Deploy to GitHub Pages“ (Actions).
    Lauf beobachten, bis er grün ist. Bei Fehlern das Job-Log lesen, beheben, erneut mergen.
-6. **Live-Check.** `https://hannespix.github.io/email-checker/` abrufen und sicherstellen, dass die
-   neue Version ausgeliefert wird (z. B. anhand einer geänderten Stelle im HTML).
-7. **Kurz berichten:** PR-Nummer, Merge-Commit, Workflow-Status, Live-URL.
+7. **Live-Check.** `https://hannespix.github.io/email-checker/` und `…/impressum.html` abrufen und sicherstellen,
+   dass die neue Version ausgeliefert wird (z. B. anhand einer geänderten Stelle im HTML).
+8. **Kurz berichten:** PR-Nummer, Merge-Commit, Workflow-Status, Live-URL.
+
+## Impressum-Fußzeile
+
+Die Fußzeile steckt in `index.html` an zwei Stellen. Fehlt sie nach einem Update, beides wieder einfügen:
+
+- **CSS** direkt vor der ersten `@media`-Regel im `<style>`-Block:
+
+  ```css
+  /* ---------- Fußzeile mit Impressum ---------- */
+  body { min-height: 100vh; }
+  /* Bei kurzem Inhalt sitzt die Leiste am unteren Fensterrand, sonst am Seitenende. */
+  .fuss { position: sticky; top: 100vh; background: var(--lcd-3); color: var(--lcd-0); border-top: 4px solid var(--lcd-0); }
+  .fuss::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(rgba(15, 56, 15, .08) 1px, transparent 1px) 0 0 / 100% 4px,
+                linear-gradient(90deg, rgba(15, 56, 15, .08) 1px, transparent 1px) 0 0 / 4px 100%;
+  }
+  .fuss .wrap { position: relative; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .5rem 1.5rem; padding-top: 1rem; padding-bottom: 1.1rem; font: 400 20px/1 var(--pixel); }
+  .fuss a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  .fuss a:hover { background: var(--lcd-4); }
+  ```
+
+- **HTML** direkt nach `</main>`:
+
+  ```html
+  <footer class="fuss">
+    <div class="wrap">
+      <span>Pix &amp; fertig</span>
+      <a href="impressum.html">Impressum</a>
+    </div>
+  </footer>
+  ```
 
 ## Deployment-Details
 
 - Pages-Quelle ist „GitHub Actions“. Der Workflow läuft bei jedem Push auf `main` und manuell per `workflow_dispatch`.
 - Das gesamte Repo-Root wird als Site-Artefakt hochgeladen (`.git` und `.github` ausgenommen).
-- Es gibt keinen Build-Schritt: Was im Repo liegt, wird 1:1 veröffentlicht.
+- Sicherheitsnetz: Verweist `index.html` nirgends auf `impressum.html`, ergänzt der Workflow für dieses Deployment
+  eine schlichte Fußzeile mit Impressum-Link und meldet eine Warnung. Das Repo bleibt dabei unverändert;
+  die richtige Fußzeile gehört trotzdem in `index.html` (Schritt 3 oben).
+- Sonst gibt es keinen Build-Schritt: Was im Repo liegt, wird 1:1 veröffentlicht.
