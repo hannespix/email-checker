@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pix &amp; fertig – Pix’ E-Mail-Checker</title>
+<!-- Schrift „Jersey 10“: Copyright 2023 The Soft Type Project Authors, SIL Open Font License 1.1 (eingebettet, kein Nachladen) -->
+<style>
+@font-face { font-family: "Jersey 10"; font-weight: 400; font-display: block; src: url(data:font/woff2;base64,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) format("woff2"); }
+@property --n { syntax: "<integer>"; inherits: false; initial-value: 0; }
+
+:root {
+  color-scheme: light;
+  /* Vier LCD-Töne wie auf einem alten Handheld – passend zu den Grünen Berufen */
+  --lcd-0: #0f380f;
+  --lcd-1: #306230;
+  --lcd-2: #7a9a1c;
+  --lcd-3: #a9c431;
+  --lcd-4: #e3efa8;
+  --grund: #eef2e3;
+  --papier: #ffffff;
+  --tinte: #12280f;
+  --tinte-2: #4a5c48;
+  --linie: #c9d4b8;
+  --marker: #ffe45e;
+  --fehler: #c8324b;
+  --px: 3px;
+  --pixel: "Jersey 10", "Cascadia Mono", Consolas, monospace;
+  --sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --mono: "Cascadia Mono", Consolas, "SF Mono", Menlo, "DejaVu Sans Mono", monospace;
+  --feder: linear(0, .32 7%, .78 16%, 1.06 27%, 1.13 36%, 1.05 50%, .99 65%, 1 100%);
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0; color: var(--tinte); font: 16px/1.5 var(--sans);
+  background: var(--grund) radial-gradient(circle at 1.5px 1.5px, var(--linie) 1.5px, transparent 0) 0 0 / 22px 22px;
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+p { margin: 0 0 .75rem; }
+.klein { font-size: .875rem; color: var(--tinte-2); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+/* ---------- Fortschritt beim Scrollen (Pixelleiste) ---------- */
+.weg { display: none; }
+@supports (animation-timeline: scroll()) {
+  .weg {
+    display: block; position: fixed; inset: 0 0 auto 0; height: 7px; z-index: 30; pointer-events: none;
+    background: repeating-linear-gradient(90deg, var(--lcd-0) 0 14px, transparent 14px 17px); clip-path: inset(0 100% 0 0);
+    animation: weg linear both; animation-timeline: scroll(root block);
+  }
+  @keyframes weg { to { clip-path: inset(0 0 0 0); } }
+}
+
+/* ---------- Kopf: der LCD-Bildschirm ---------- */
+.top { position: relative; overflow: hidden; background: var(--lcd-3); color: var(--lcd-0); border-bottom: 4px solid var(--lcd-0); padding: 2.5rem 0 2.25rem; }
+.top::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(rgba(15, 56, 15, .08) 1px, transparent 1px) 0 0 / 100% 4px,
+              linear-gradient(90deg, rgba(15, 56, 15, .08) 1px, transparent 1px) 0 0 / 4px 100%;
+}
+.kopf { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1.5rem 3rem; align-items: center; }
+.marke { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1rem; }
+.pixi { flex: none; width: 6rem; height: 6rem; shape-rendering: crispEdges; animation: hopsen 1.1s steps(1) infinite; }
+.pixi .innen { fill: var(--lcd-4); } .pixi .aussen, .pixi .auge { fill: var(--lcd-0); }
+.pixi .auge { transform-box: fill-box; transform-origin: 50% 50%; animation: zwinkern 4.2s steps(1) infinite; }
+@keyframes hopsen { 0%, 100% { translate: 0 0; } 50% { translate: 0 -6px; } }
+@keyframes zwinkern { 0%, 93% { scale: 1 1; } 94%, 100% { scale: 1 .15; } }
+h1 { margin: 0; font: 400 100px/.8 var(--pixel); text-shadow: 4px 4px 0 var(--lcd-2); white-space: nowrap; }
+h1 span { display: inline-block; animation: fallen .6s var(--feder) both; animation-delay: calc(var(--i) * 55ms); }
+@keyframes fallen { from { translate: 0 -160%; opacity: 0; } }
+.unter { margin: 8px 0 0; font: 400 30px/1 var(--pixel); color: var(--lcd-1); }
+.lede { margin: 0; max-width: 34ch; font-size: 1.25rem; line-height: 1.35; font-weight: 600; }
+.lokal { margin: .6rem 0 0; max-width: 46ch; font-size: .9375rem; }
+
+.dialog {
+  margin: var(--px); padding: 1rem 1.15rem; min-width: 23.5rem; background: var(--lcd-4);
+  box-shadow: 0 calc(-1 * var(--px)) 0 0 var(--lcd-0), 0 var(--px) 0 0 var(--lcd-0), calc(-1 * var(--px)) 0 0 0 var(--lcd-0), var(--px) 0 0 0 var(--lcd-0),
+              calc(2 * var(--px)) calc(3 * var(--px)) 0 0 var(--lcd-1);
+}
+.dz { display: grid; grid-template-columns: 5.2rem 1fr; align-items: baseline; height: 1.9rem; }
+.dl { font: 400 20px/1 var(--pixel); color: var(--lcd-1); }
+.dialog code { display: inline-block; overflow: hidden; white-space: pre; vertical-align: bottom; font: 1rem/1.9rem var(--mono); }
+.dialog mark { background: var(--lcd-0); color: var(--lcd-4); padding: 0; }
+.dialog.lauf #d1 { animation: tippen .9s both; }
+.dialog.lauf .dz1 mark { animation: nochnicht 0s 1.05s both; }
+.dialog.lauf .dz2 { animation: wischen .4s steps(8) 1.6s both; }
+@keyframes tippen { from { width: 0; } }
+@keyframes nochnicht { from { background: transparent; color: inherit; } }
+@keyframes wischen { from { clip-path: inset(0 100% 0 0); } }
+
+/* ---------- Schritte als Fenster ---------- */
+main.wrap { padding-top: 2.25rem; padding-bottom: 5rem; }
+.step {
+  background: var(--papier); border: var(--px) solid var(--lcd-0); box-shadow: 6px 6px 0 var(--lcd-0); margin-bottom: 1.9rem;
+  transition: opacity .45s ease-out, translate .7s var(--feder), display .7s allow-discrete;
+}
+@starting-style { .step { opacity: 0; translate: 0 36px; } }
+#s3 { transition-delay: .14s; }
+.step > h2 { margin: 0; padding: .55rem 1rem; display: flex; align-items: center; gap: .7rem; background: var(--lcd-0); color: var(--lcd-4); font: 400 30px/1 var(--pixel); }
+.num { flex: none; display: inline-grid; place-items: center; width: 32px; height: 32px; background: var(--lcd-3); color: var(--lcd-0); }
+.inhalt { padding: 1.35rem 1.35rem 1.5rem; }
+
+/* ---------- Bedienelemente ---------- */
+button, input, select, textarea { font: inherit; color: inherit; }
+.btn {
+  --rand: var(--lcd-0);
+  position: relative; display: inline-block; margin: var(--px); padding: .45rem .9rem; border: 0; border-radius: 0; cursor: pointer;
+  font: 400 20px/1.1 var(--pixel); color: var(--lcd-0); background: var(--papier);
+  box-shadow: 0 calc(-1 * var(--px)) 0 0 var(--rand), 0 var(--px) 0 0 var(--rand), calc(-1 * var(--px)) 0 0 0 var(--rand), var(--px) 0 0 0 var(--rand),
+              inset 0 -4px 0 0 rgba(15, 56, 15, .18);
+  transition: background-color .12s, translate .08s steps(2);
+}
+.btn:hover:not(:disabled) { background: var(--lcd-4); }
+.btn:active:not(:disabled) { translate: 0 2px; box-shadow: 0 calc(-1 * var(--px)) 0 0 var(--rand), 0 var(--px) 0 0 var(--rand), calc(-1 * var(--px)) 0 0 0 var(--rand), var(--px) 0 0 0 var(--rand), inset 0 4px 0 0 rgba(15, 56, 15, .18); }
+.btn.haupt { background: var(--lcd-0); color: var(--lcd-4); }
+.btn.haupt:hover:not(:disabled) { background: var(--lcd-1); }
+.btn.sm { padding: .3rem .65rem; }
+.btn:disabled { opacity: .4; cursor: default; }
+.btn.ok, .btn.haupt.ok, .btn.haupt.ok:hover:not(:disabled) { background: var(--lcd-3); color: var(--lcd-0); animation: plopp .4s var(--feder); }
+@keyframes plopp { from { scale: .86; } }
+.plus { position: absolute; left: 50%; top: -.5rem; translate: -50% 0; pointer-events: none; white-space: nowrap; font: 400 30px/1 var(--pixel); color: var(--lcd-0); text-shadow: 2px 2px 0 var(--lcd-3); animation: punkte 1s steps(10) forwards; }
+@keyframes punkte { to { translate: -50% -2.8rem; opacity: 0; } }
+.textlink { background: none; border: 0; padding: 0; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; cursor: pointer; font-weight: 600; }
+.textlink:hover { background: var(--lcd-4); }
+:focus-visible { outline: 3px solid var(--lcd-0); outline-offset: 2px; }
+.btn:focus-visible { outline-offset: 6px; }
+select, input[type="number"], .val, textarea { border: 2px solid var(--lcd-0); border-radius: 0; background: var(--papier); padding: .4rem .55rem; }
+select { max-width: 100%; }
+mark { color: inherit; padding: 0 1px; background: linear-gradient(var(--marker), var(--marker)) no-repeat 0 70% / 100% 82%; }
+
+/* ---------- Schritt 1 ---------- */
+.laden { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.drop {
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: .55rem; min-height: 10rem; padding: 1.25rem; cursor: pointer;
+  background-color: var(--papier);
+  background-image: linear-gradient(90deg, var(--lcd-0) 50%, transparent 0), linear-gradient(90deg, var(--lcd-0) 50%, transparent 0),
+                    linear-gradient(0deg, var(--lcd-0) 50%, transparent 0), linear-gradient(0deg, var(--lcd-0) 50%, transparent 0);
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+  background-size: 16px 3px, 16px 3px, 3px 16px, 3px 16px;
+  background-position: 0 0, 0 100%, 0 0, 100% 0;
+  transition: background-color .15s;
+}
+.drop:hover, .drop.over, .drop:focus-within { animation: ameisen .5s linear infinite; }
+.drop.over { background-color: var(--lcd-4); }
+.drop.over strong { animation: hopsen .5s steps(1) infinite; }
+@keyframes ameisen { to { background-position: 16px 0, -16px 100%, 0 -16px, 100% 16px; } }
+.drop strong { font: 400 30px/1 var(--pixel); }
+.drop input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.drop:focus-within { outline: 3px solid var(--lcd-0); outline-offset: 3px; }
+.einf { display: flex; flex-direction: column; gap: .4rem; }
+.einf label { font: 400 20px/1.2 var(--pixel); }
+.einf textarea { flex: 1; min-height: 6.5rem; resize: vertical; font-family: var(--mono); font-size: .875rem; }
+.demo { margin: 1rem 0 0; }
+.meldung { margin: 1rem 0 0; padding: .7rem .9rem; border: var(--px) solid var(--fehler); background: #fbe9ec; font-weight: 600; animation: ruetteln .35s steps(6); }
+@keyframes ruetteln { 0%, 100% { translate: 0 0; } 20%, 60% { translate: -6px 0; } 40%, 80% { translate: 6px 0; } }
+
+.map { margin-top: 1.5rem; padding-top: 1.25rem; border-top: var(--px) dotted var(--lcd-0); animation: aufklappen .5s var(--feder); }
+@keyframes aufklappen { from { opacity: 0; translate: 0 -12px; } }
+.quelle { font: 400 20px/1.2 var(--pixel); }
+.felder { display: flex; flex-wrap: wrap; gap: .9rem 1.5rem; align-items: end; margin-bottom: 1rem; }
+.felder label { display: flex; flex-direction: column; gap: .25rem; font-size: .9375rem; font-weight: 600; }
+.felder label.haken { flex-direction: row; align-items: center; gap: .5rem; font-weight: 400; padding-bottom: .45rem; }
+.felder input[type="checkbox"], .optionen input[type="radio"] { width: 1.15rem; height: 1.15rem; accent-color: var(--lcd-0); }
+.vorschau { overflow-x: auto; border: 2px solid var(--lcd-0); }
+.vorschau table { border-collapse: collapse; width: 100%; font-size: .875rem; }
+.vorschau th, .vorschau td { padding: .35rem .6rem; text-align: left; white-space: nowrap; max-width: 18rem; overflow: hidden; text-overflow: ellipsis; border-bottom: 1px solid var(--linie); transition: background-color .25s; }
+.vorschau tr:last-child td { border-bottom: 0; }
+.vorschau th { background: var(--grund); font-weight: 600; }
+.vorschau td.gew { background: var(--lcd-4); }
+.vorschau th.gew { background: var(--lcd-3); }
+.rolle { display: block; font-size: .75rem; font-weight: 400; }
+
+/* ---------- Schritt 2 ---------- */
+.zahl { counter-reset: n var(--n); transition: --n .9s cubic-bezier(.2, .7, .2, 1); }
+.zahl::after { content: counter(n); }
+#summe { font-size: 1.0625rem; }
+#summe strong { font: 400 30px/1 var(--pixel); }
+.balken { position: relative; display: flex; height: 26px; margin: 1rem 0 1.1rem; padding: 3px; border: var(--px) solid var(--lcd-0); background: var(--papier); }
+.balken span { min-width: 4px; transform-origin: 0 50%; }
+.balken::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(90deg, transparent 0 12px, var(--papier) 12px 15px); }
+.frisch .balken span { animation: fuellen .55s steps(10) both; animation-delay: calc(var(--i) * .22s + .15s); }
+@keyframes fuellen { from { scale: 0 1; } }
+.b-ok { background: var(--lcd-1); } .b-auto { background: var(--lcd-2); } .b-suggest { background: var(--marker); } .b-invalid { background: var(--fehler); }
+.leiste { display: flex; flex-wrap: wrap; gap: .6rem 1.5rem; justify-content: space-between; align-items: center; margin-bottom: .75rem; }
+.filter, .aktionen { display: flex; flex-wrap: wrap; gap: .45rem; }
+.filter .btn[aria-pressed="true"] { background: var(--lcd-0); color: var(--lcd-4); }
+.punkt { display: inline-block; width: .7rem; height: .7rem; margin-right: .45rem; vertical-align: -1px; box-shadow: 0 0 0 2px var(--lcd-0), 0 0 0 4px var(--papier); }
+
+.rv { display: grid; grid-template-columns: 12.5rem minmax(0, 1fr); gap: .25rem 1.5rem; padding: 1.1rem .5rem; margin: 0 -.5rem; border-top: 2px solid var(--linie); }
+.rv.neu { animation: reinrutschen .55s var(--feder) both; animation-delay: calc(var(--i) * 55ms + .5s); }
+@keyframes reinrutschen { from { opacity: 0; translate: -22px 0; } }
+.rv.wechsel { animation: reinrutschen .34s var(--feder) both; animation-delay: calc(var(--i) * 28ms); }
+.rv.neu mark { animation: markern .4s steps(5) both; animation-delay: calc(var(--i) * 55ms + 1s); }
+@keyframes markern { from { background-size: 0% 82%; } }
+.rv.blitz { animation: blitz .8s ease-out; }
+@keyframes blitz { from { background-color: var(--marker); } to { background-color: transparent; } }
+.rv.blitz .st { animation: plopp .45s var(--feder); display: inline-block; }
+.rv-meta { display: flex; flex-direction: column; align-items: flex-start; gap: .25rem; font-size: .875rem; }
+.chip { font: 400 20px/1 var(--pixel); padding: 3px 7px 4px; border: 2px solid; }
+.k-invalid .chip { color: #fff; background: var(--fehler); border-color: var(--fehler); }
+.k-suggest .chip { background: var(--marker); border-color: var(--lcd-0); }
+.k-auto .chip { color: var(--lcd-1); border-color: var(--lcd-1); }
+.rv .chip.c-fertig { color: var(--lcd-4); background: var(--lcd-1); border-color: var(--lcd-1); }
+.rv .chip.c-aus { color: var(--tinte-2); background: none; border-color: var(--tinte-2); }
+.rv-meta .bf { color: var(--tinte-2); overflow-wrap: anywhere; }
+.zeile { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: .75rem; align-items: baseline; margin-bottom: .3rem; }
+.zeile .lab { font-size: .875rem; color: var(--tinte-2); }
+.zeile code, .val { font-family: var(--mono); font-size: .9375rem; }
+.zeile code { white-space: pre-wrap; overflow-wrap: anywhere; }
+.nutz { align-items: center; }
+.nutz > div { display: flex; flex-wrap: wrap; gap: .4rem .75rem; align-items: center; }
+.val { width: min(100%, 26rem); transition: border-color .2s, box-shadow .2s; }
+.val.z-schlecht { border-color: var(--fehler); box-shadow: 3px 3px 0 var(--fehler); }
+.val.z-gut { border-color: var(--lcd-1); box-shadow: 3px 3px 0 var(--lcd-3); }
+.val.z-offen { box-shadow: 3px 3px 0 var(--marker); }
+.st { font-size: .875rem; font-weight: 700; }
+.st.gut { color: var(--lcd-1); } .st.schlecht { color: var(--fehler); } .st.aus { color: var(--tinte-2); }
+.warum { margin: .4rem 0 .55rem; font-size: .875rem; color: var(--tinte-2); max-width: 75ch; }
+.knoepfe { display: flex; flex-wrap: wrap; gap: .45rem; }
+.rv.ist-aus .zeile code, .rv.ist-aus .val { text-decoration: line-through; color: var(--tinte-2); }
+.rv.ist-aus .rv-body > :not(.knoepfe) { opacity: .6; }
+.mehr { margin-top: 1rem; }
+.leer { margin: 0; padding: 1.1rem 0 0; border-top: 2px solid var(--linie); font: 400 30px/1.1 var(--pixel); color: var(--lcd-1); }
+
+/* ---------- Schritt 3 ---------- */
+.optionen { display: flex; flex-wrap: wrap; gap: .75rem 2rem; align-items: center; margin-bottom: 1rem; font-size: .9375rem; }
+.optionen fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .25rem 1rem; align-items: center; }
+.optionen legend { float: left; padding: 0; margin-right: 1rem; font-weight: 700; }
+.optionen label { display: inline-flex; align-items: center; gap: .4rem; }
+.optionen input[type="number"] { width: 5.5rem; }
+.hinweis { padding: .7rem .9rem; border: var(--px) solid var(--lcd-0); background: var(--marker); margin-bottom: 1rem; font-weight: 600; }
+.grp { display: grid; grid-template-columns: 15rem minmax(0, 1fr) auto; gap: .5rem 1.25rem; padding: 1.1rem 0; border-top: 2px solid var(--linie); align-items: start; }
+.grp h3 { margin: 0; font: 400 20px/1.15 var(--pixel); overflow-wrap: anywhere; }
+.grp .zahlen { margin: .2rem 0 0; font-size: .875rem; color: var(--tinte-2); }
+.grp textarea { width: 100%; height: 4.6rem; resize: vertical; font-family: var(--mono); font-size: .8125rem; line-height: 1.45; border-color: var(--linie); background: #f8faf3; }
+.g-btns { display: flex; flex-direction: column; gap: .5rem; min-width: 9.5rem; }
+.grp.gesamt { border-top: var(--px) solid var(--lcd-0); }
+
+/* ---------- Meldung unten rechts ---------- */
+.toast {
+  position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 20; display: none; align-items: center; gap: .8rem;
+  max-width: min(27rem, calc(100vw - 2.5rem)); padding: .65rem 1.1rem .65rem .8rem;
+  background: var(--lcd-4); color: var(--lcd-0); border: var(--px) solid var(--lcd-0); box-shadow: 5px 5px 0 var(--lcd-0);
+  font: 400 20px/1.15 var(--pixel); opacity: 0; translate: 0 140%;
+  transition: translate .5s var(--feder), opacity .2s, display .5s allow-discrete;
+}
+.toast.an { display: flex; opacity: 1; translate: 0 0; }
+@starting-style { .toast.an { opacity: 0; translate: 0 140%; } }
+.toast .pixi { width: 2.6rem; height: 2.6rem; animation-duration: .5s; }
+
+@media (max-width: 860px) {
+  h1 { font-size: 70px; }
+  .kopf { grid-template-columns: minmax(0, 1fr); }
+  .dialog { min-width: 0; max-width: 24rem; }
+}
+@media (max-width: 760px) {
+  .wrap { padding: 0 1rem; }
+  .top { padding: 1.75rem 0; }
+  h1 { font-size: 50px; text-shadow: 3px 3px 0 var(--lcd-2); }
+  .unter { font-size: 20px; }
+  .top .pixi { width: 4rem; height: 4rem; }
+  .marke { gap: .9rem; }
+  .inhalt { padding: 1.1rem; }
+  .laden, .rv, .grp { grid-template-columns: minmax(0, 1fr); }
+  .rv-meta { flex-direction: row; flex-wrap: wrap; gap: .25rem .75rem; align-items: center; }
+  .zeile { grid-template-columns: minmax(0, 1fr); gap: .1rem; }
+  .dz { grid-template-columns: 4.6rem 1fr; }
+  .dialog code { font-size: .875rem; }
+  .g-btns { flex-direction: row; flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+  .weg { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="weg" aria-hidden="true"></div>
+
+<header class="top">
+  <div class="wrap kopf">
+    <div>
+      <div class="marke">
+        <svg class="pixi" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect class="innen" x="1" y="1" width="14" height="12"/><path class="aussen" d="M1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM7 0h1v1h-1zM8 0h1v1h-1zM9 0h1v1h-1zM10 0h1v1h-1zM11 0h1v1h-1zM12 0h1v1h-1zM13 0h1v1h-1zM14 0h1v1h-1zM0 1h1v1h-1zM15 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM14 2h1v1h-1zM15 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM12 3h1v1h-1zM13 3h1v1h-1zM15 3h1v1h-1zM0 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM10 4h1v1h-1zM11 4h1v1h-1zM15 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM7 5h1v1h-1zM8 5h1v1h-1zM9 5h1v1h-1zM15 5h1v1h-1zM0 6h1v1h-1zM15 6h1v1h-1zM0 7h1v1h-1zM15 7h1v1h-1zM0 8h1v1h-1zM15 8h1v1h-1zM0 9h1v1h-1zM15 9h1v1h-1zM0 10h1v1h-1zM6 10h1v1h-1zM9 10h1v1h-1zM15 10h1v1h-1zM0 11h1v1h-1zM7 11h1v1h-1zM8 11h1v1h-1zM15 11h1v1h-1zM0 12h1v1h-1zM15 12h1v1h-1zM1 13h1v1h-1zM2 13h1v1h-1zM3 13h1v1h-1zM4 13h1v1h-1zM5 13h1v1h-1zM6 13h1v1h-1zM7 13h1v1h-1zM8 13h1v1h-1zM9 13h1v1h-1zM10 13h1v1h-1zM11 13h1v1h-1zM12 13h1v1h-1zM13 13h1v1h-1zM14 13h1v1h-1zM3 14h1v1h-1zM4 14h1v1h-1zM11 14h1v1h-1zM12 14h1v1h-1zM3 15h1v1h-1zM4 15h1v1h-1zM11 15h1v1h-1zM12 15h1v1h-1z"/><path class="auge" d="M4 7h1v1h-1zM5 7h1v1h-1zM10 7h1v1h-1zM11 7h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM10 8h1v1h-1zM11 8h1v1h-1z"/></svg>
+        <div>
+          <h1 aria-label="Pix &amp; fertig"><span aria-hidden="true" style="--i:0">P</span><span aria-hidden="true" style="--i:1">i</span><span aria-hidden="true" style="--i:2">x</span> <span aria-hidden="true" style="--i:4">&amp;</span> <span aria-hidden="true" style="--i:6">f</span><span aria-hidden="true" style="--i:7">e</span><span aria-hidden="true" style="--i:8">r</span><span aria-hidden="true" style="--i:9">t</span><span aria-hidden="true" style="--i:10">i</span><span aria-hidden="true" style="--i:11">g</span></h1>
+          <p class="unter">Pix’ E-Mail-Checker</p>
+        </div>
+      </div>
+      <p class="lede">Adressen aus Excel rein, Tippfehler raus, BCC-Liste je Beruf fertig.</p>
+      <p class="lokal">Läuft komplett in diesem Browserfenster. Keine Adresse verlässt den Rechner.</p>
+    </div>
+    <div class="dialog" id="dialog" aria-hidden="true">
+      <div class="dz dz1"><span class="dl">vertippt</span><span><code id="d1"></code></span></div>
+      <div class="dz dz2"><span class="dl">gepixt</span><span><code id="d2"></code></span></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="step" id="s1" aria-labelledby="h1s">
+    <h2 id="h1s"><span class="num">1</span>Daten laden</h2>
+    <div class="inhalt">
+      <div class="laden">
+        <label class="drop" id="drop">
+          <strong>Excel-Datei hierher ziehen</strong>
+          <span class="btn">Datei auswählen</span>
+          <span class="klein">.xlsx oder .csv</span>
+          <input type="file" id="file" accept=".xlsx,.xlsm,.csv,.tsv,.txt">
+        </label>
+        <div class="einf">
+          <label for="paste">Oder Zellen aus Excel einfügen</label>
+          <textarea id="paste" placeholder="In Excel die Spalten mit Beruf und E-Mail markieren, Strg+C drücken, hier klicken und Strg+V drücken."></textarea>
+        </div>
+      </div>
+      <p class="demo klein">Erst ausprobieren? <button type="button" class="textlink" id="demo">Erfundene Beispieldaten laden</button></p>
+      <p class="meldung" id="fehler" role="alert" hidden></p>
+
+      <div class="map" id="map" hidden>
+        <p class="quelle" id="quelle"></p>
+        <div class="felder">
+          <label id="blattWrap" hidden>Tabellenblatt <select id="blatt"></select></label>
+          <label>Spalte mit dem Beruf <select id="colBeruf"></select></label>
+          <label>Spalte mit der E-Mail-Adresse <select id="colMail"></select></label>
+          <label class="haken"><input type="checkbox" id="hdr"> Erste Zeile enthält Überschriften</label>
+        </div>
+        <div class="vorschau"><table id="prev"></table></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="step" id="s2" aria-labelledby="h2s" hidden>
+    <h2 id="h2s"><span class="num">2</span>Adressen prüfen</h2>
+    <div class="inhalt">
+      <p id="summe"></p>
+      <p class="klein">Geprüft wird das Format der Adresse. Ob ein Postfach tatsächlich existiert, zeigt erst der Versand.</p>
+      <div id="pruef">
+        <div class="balken" id="balken" aria-hidden="true"></div>
+        <div class="leiste">
+          <div class="filter" id="filter" role="group" aria-label="Prüfliste filtern"></div>
+          <div class="aktionen">
+            <button type="button" class="btn sm" id="alleUeb">Alle Vorschläge übernehmen</button>
+            <button type="button" class="btn sm" id="logKopie">Korrekturliste für Excel kopieren</button>
+          </div>
+        </div>
+        <div id="liste"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="step" id="s3" aria-labelledby="h3s" hidden>
+    <h2 id="h3s"><span class="num">3</span>BCC-Listen kopieren</h2>
+    <div class="inhalt">
+      <div class="optionen">
+        <fieldset>
+          <legend>Trennzeichen</legend>
+          <label><input type="radio" name="sep" value="; " checked> Semikolon (Outlook-Standard)</label>
+          <label><input type="radio" name="sep" value=", "> Komma</label>
+        </fieldset>
+        <label>Höchstens <input type="number" id="block" min="0" step="10" placeholder="alle" aria-describedby="blockHilfe"> Adressen pro Block</label>
+        <span class="klein" id="blockHilfe">Nur nötig, wenn der Mailserver die Empfängerzahl je Nachricht begrenzt.</span>
+      </div>
+      <p class="hinweis" id="offen" hidden></p>
+      <div id="gruppen"></div>
+    </div>
+  </section>
+
+</main>
+<div class="toast" id="toast" aria-hidden="true"><svg class="pixi" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect class="innen" x="1" y="1" width="14" height="12"/><path class="aussen" d="M1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM7 0h1v1h-1zM8 0h1v1h-1zM9 0h1v1h-1zM10 0h1v1h-1zM11 0h1v1h-1zM12 0h1v1h-1zM13 0h1v1h-1zM14 0h1v1h-1zM0 1h1v1h-1zM15 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM14 2h1v1h-1zM15 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM12 3h1v1h-1zM13 3h1v1h-1zM15 3h1v1h-1zM0 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM10 4h1v1h-1zM11 4h1v1h-1zM15 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM7 5h1v1h-1zM8 5h1v1h-1zM9 5h1v1h-1zM15 5h1v1h-1zM0 6h1v1h-1zM15 6h1v1h-1zM0 7h1v1h-1zM15 7h1v1h-1zM0 8h1v1h-1zM15 8h1v1h-1zM0 9h1v1h-1zM15 9h1v1h-1zM0 10h1v1h-1zM6 10h1v1h-1zM9 10h1v1h-1zM15 10h1v1h-1zM0 11h1v1h-1zM7 11h1v1h-1zM8 11h1v1h-1zM15 11h1v1h-1zM0 12h1v1h-1zM15 12h1v1h-1zM1 13h1v1h-1zM2 13h1v1h-1zM3 13h1v1h-1zM4 13h1v1h-1zM5 13h1v1h-1zM6 13h1v1h-1zM7 13h1v1h-1zM8 13h1v1h-1zM9 13h1v1h-1zM10 13h1v1h-1zM11 13h1v1h-1zM12 13h1v1h-1zM13 13h1v1h-1zM14 13h1v1h-1zM3 14h1v1h-1zM4 14h1v1h-1zM11 14h1v1h-1zM12 14h1v1h-1zM3 15h1v1h-1zM4 15h1v1h-1zM11 15h1v1h-1zM12 15h1v1h-1z"/><path class="auge" d="M4 7h1v1h-1zM5 7h1v1h-1zM10 7h1v1h-1zM11 7h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM10 8h1v1h-1zM11 8h1v1h-1z"/></svg><span id="toastText"></span></div>
+<div class="sr" id="live" aria-live="polite"></div>
+
+<script>
+'use strict';
+
+/* ============================================================
+   1. Adressprüfung (reine Funktionen, ohne Oberfläche)
+   ============================================================ */
+
+// Bekannte Anbieter: gültige Endungen; streng = andere Endungen gelten als Tippfehler;
+// unscharf = ähnlich geschriebene Namen werden als Tippfehler vorgeschlagen.
+const ANBIETER = {
+  'gmail':      { t: ['com'], streng: true, unscharf: true },
+  'googlemail': { t: ['com'], streng: true, unscharf: true },
+  'gmx':        { t: ['de', 'net', 'at', 'ch', 'com', 'info', 'org', 'eu', 'li'], unscharf: true },
+  'web':        { t: ['de'], streng: true, unscharf: true },
+  't-online':   { t: ['de'], streng: true, unscharf: true },
+  'outlook':    { t: ['de', 'com', 'at', 'fr', 'es', 'it'], unscharf: true },
+  'hotmail':    { t: ['de', 'com', 'fr', 'it', 'es'], unscharf: true },
+  'yahoo':      { t: ['de', 'com', 'fr', 'it', 'es'], unscharf: true },
+  'icloud':     { t: ['com'], streng: true, unscharf: true },
+  'freenet':    { t: ['de'], streng: true, unscharf: true },
+  'arcor':      { t: ['de'], unscharf: true },
+  'kabelbw':    { t: ['de'], streng: true, unscharf: true },
+  'vodafone':   { t: ['de'], unscharf: true },
+  'protonmail': { t: ['com', 'ch'], unscharf: true },
+  'tutanota':   { t: ['com', 'de'], unscharf: true },
+  'bluewin':    { t: ['ch'], unscharf: true },
+  'unitybox':   { t: ['de'], unscharf: true },
+  'mailbox':    { t: ['org'], unscharf: true },
+  'posteo':     { t: ['de', 'net'] },
+  'live':       { t: ['de', 'com'] },
+  'aol':        { t: ['com', 'de'] },
+  'mail':       { t: ['de', 'com'] },
+  'email':      { t: ['de', 'com'] },
+  'online':     { t: ['de'] },
+  'ymail':      { t: ['com'] },
+  'me':         { t: ['com'] },
+  'mac':        { t: ['com'] },
+  'msn':        { t: ['com'] },
+  'proton':     { t: ['me'] },
+  '1und1':      { t: ['de'] }
+};
+const UNSCHARF = Object.keys(ANBIETER).filter(k => ANBIETER[k].unscharf);
+const ALLE_DOMAINS = Object.entries(ANBIETER)
+  .flatMap(([n, p]) => p.t.map(t => n + '.' + t))
+  .sort((a, b) => b.length - a.length);
+
+// Endungen, die es nicht gibt und die fast immer vertippt sind
+const TLD_TIPPFEHLER = {
+  con: 'com', cmo: 'com', ocm: 'com', comm: 'com', coom: 'com', vom: 'com', xom: 'com', cim: 'com', cpm: 'com',
+  dee: 'de', dde: 'de', ded: 'de', ed: 'de', dr: 'de', dw: 'de', ds: 'de', df: 'de', d: 'de',
+  nte: 'net', ent: 'net', nett: 'net', ner: 'net',
+  ogr: 'org', orgg: 'org', og: 'org', prg: 'org'
+};
+// Echte Endungen, die bei bekannten Anbietern trotzdem meist vertippt sind
+const TLD_BEI_ANBIETER = { co: 'com', cm: 'com', om: 'com', ne: 'net' };
+const ECHTE_TLDS = new Set(('ac ad ae af ag ai al am ao ar as at au aw ax az ba bb bd be bf bg bh bi bj bm bn bo br bs bt bw by bz ' +
+  'ca cc cd cf cg ch ci ck cl cm cn co cr cu cv cw cx cy cz de dj dk dm do dz ec ee eg er es et eu fi fj fk fm fo fr ' +
+  'ga gd ge gf gg gh gi gl gm gn gp gq gr gs gt gu gw gy hk hm hn hr ht hu id ie il im in io iq ir is it je jm jo jp ' +
+  'ke kg kh ki km kn kp kr kw ky kz la lb lc li lk lr ls lt lu lv ly ma mc md me mg mh mk ml mm mn mo mp mq mr ms mt ' +
+  'mu mv mw mx my mz na nc ne nf ng ni nl no np nr nu nz om pa pe pf pg ph pk pl pm pn pr ps pt pw py qa re ro rs ru ' +
+  'rw sa sb sc sd se sg sh si sk sl sm sn so sr ss st su sv sx sy sz tc td tf tg th tj tk tl tm tn to tr tt tv tw tz ' +
+  'ua ug uk us uy uz va vc ve vg vi vn vu wf ws ye yt za zm zw com net org info biz edu gov int name pro app dev online email cloud').split(' '));
+
+const PLATZHALTER = /^(?:[-–—.\/?x0]+|keine?(?:\s+(?:e-?mail|angabe|adresse))?|n\.?\/?a\.?|k\.?\s?a\.?|nicht\s+vorhanden|unbekannt|fehlt|nein)$/i;
+
+// Damerau-Levenshtein (Buchstabendreher zählen als ein Fehler)
+function abstand(a, b) {
+  const n = a.length, m = b.length;
+  if (!n) return m;
+  if (!m) return n;
+  let p2 = null, p1 = Array.from({ length: m + 1 }, (_, j) => j);
+  for (let i = 1; i <= n; i++) {
+    const cur = [i];
+    for (let j = 1; j <= m; j++) {
+      const k = a[i - 1] === b[j - 1] ? 0 : 1;
+      cur[j] = Math.min(p1[j] + 1, cur[j - 1] + 1, p1[j - 1] + k);
+      if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) cur[j] = Math.min(cur[j], p2[j - 2] + 1);
+    }
+    p2 = p1; p1 = cur;
+  }
+  return p1[m];
+}
+
+function aehnlicherAnbieter(name) {
+  if (name.length < 2) return null;
+  let best = null, bd = 99;
+  for (const k of UNSCHARF) {
+    const grenze = k.length >= 7 ? 2 : 1;
+    if (Math.abs(k.length - name.length) > grenze) continue;
+    const d = abstand(name, k);
+    if (d > 0 && d <= grenze && d < bd) { bd = d; best = k; }
+  }
+  return best;
+}
+
+function naechsteTld(tld, liste) {
+  if (liste.includes(TLD_TIPPFEHLER[tld])) return TLD_TIPPFEHLER[tld];
+  if (liste.includes(TLD_BEI_ANBIETER[tld])) return TLD_BEI_ANBIETER[tld];
+  let best = liste[0], bd = 99;
+  for (const t of liste) { const d = abstand(tld, t); if (d < bd) { bd = d; best = t; } }
+  return best;
+}
+
+// Liefert { domain, warum } oder null
+function domainVorschlag(d) {
+  if (!d) return null;
+  const doppelt = d.replace(/\.([a-z]{2,6})\.\1$/, '.$1');
+  if (doppelt !== d) return { domain: doppelt, warum: 'Endung steht doppelt' };
+
+  const i = d.lastIndexOf('.');
+  if (i < 0) {
+    for (const k of ALLE_DOMAINS) if (d === k.replace('.', '')) return { domain: k, warum: 'Punkt in der Domain fehlt' };
+    const n = ANBIETER[d] ? d : aehnlicherAnbieter(d);
+    if (n) return { domain: n + '.' + ANBIETER[n].t[0], warum: 'Endung der Domain fehlt' };
+    return null;
+  }
+  let name = d.slice(0, i);
+  const tld = d.slice(i + 1);
+  let p = ANBIETER[name];
+  if (!p) {
+    const n = aehnlicherAnbieter(name);
+    // Sehr kurze Namen (gmx, web) nur korrigieren, wenn auch die Endung passt oder nicht existiert
+    if (n && (n.length > 3 || ANBIETER[n].t.includes(tld) || !ECHTE_TLDS.has(tld))) { name = n; p = ANBIETER[n]; }
+  }
+  if (p) {
+    let t = tld;
+    if (!p.t.includes(tld) && (p.streng || !ECHTE_TLDS.has(tld) || TLD_BEI_ANBIETER[tld])) t = naechsteTld(tld, p.t);
+    const neu = name + '.' + t;
+    return neu === d ? null : { domain: neu, warum: `Domain „${d}“ sieht nach „${neu}“ aus` };
+  }
+  if (TLD_TIPPFEHLER[tld]) return { domain: name + '.' + TLD_TIPPFEHLER[tld], warum: `Endung „.${tld}“ sieht nach „.${TLD_TIPPFEHLER[tld]}“ aus` };
+  return null;
+}
+
+// Gibt null zurück, wenn das Format gültig ist, sonst den Grund
+function formatFehler(a) {
+  if (!a) return 'leer';
+  if (/\s/.test(a)) return 'Leerzeichen in der Adresse';
+  const n = (a.match(/@/g) || []).length;
+  if (n === 0) return 'kein @-Zeichen';
+  if (n > 1) return 'mehr als ein @-Zeichen';
+  const at = a.indexOf('@'), l = a.slice(0, at), d = a.slice(at + 1);
+  if (!l) return 'Teil vor dem @ fehlt';
+  if (!d) return 'Domain nach dem @ fehlt';
+  if (a.length > 254 || l.length > 64) return 'Adresse zu lang';
+  const bad = l.match(/[^A-Za-z0-9.!#$%&'*+\/=?^_`{|}~-]/);
+  if (bad) return /[^\x00-\x7F]/.test(bad[0]) ? `Umlaut oder Sonderzeichen „${bad[0]}“ vor dem @` : `unzulässiges Zeichen „${bad[0]}“ vor dem @`;
+  if (l.startsWith('.') || l.endsWith('.') || l.includes('..')) return 'Punkt an falscher Stelle vor dem @';
+  if (!d.includes('.')) return 'Domain ohne Endung (z. B. .de)';
+  const teile = d.split('.');
+  for (const t of teile) {
+    if (!t) return 'Punkt an falscher Stelle in der Domain';
+    if (!/^[\p{L}\p{N}](?:[\p{L}\p{N}-]*[\p{L}\p{N}])?$/u.test(t)) {
+      const b = t.match(/[^\p{L}\p{N}-]/u);
+      return b ? `unzulässiges Zeichen „${b[0]}“ in der Domain` : 'Bindestrich an falscher Stelle in der Domain';
+    }
+  }
+  if (!/^[a-z]{2,}$/i.test(teile[teile.length - 1])) return 'Endung der Domain ungültig';
+  return null;
+}
+
+function ohneUmlaute(s) {
+  return s.replace(/[äöüÄÖÜß]/g, c => ({ 'ä': 'ae', 'ö': 'oe', 'ü': 'ue', 'Ä': 'Ae', 'Ö': 'Oe', 'Ü': 'Ue', 'ß': 'ss' }[c]))
+          .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
+// Eine Zelle kann mehrere Adressen enthalten
+function zelleTeilen(zelle) {
+  const out = [];
+  for (const teil of String(zelle).split(/[;\n\r|]+/)) {
+    const p = teil.trim();
+    if (!p) continue;
+    if ((p.match(/@/g) || []).length >= 2) {
+      const sub = p.split(/[\s,\/]+/).filter(Boolean);
+      if (sub.length >= 2 && sub.every(x => (x.match(/@/g) || []).length === 1)) { out.push(...sub); continue; }
+    }
+    out.push(p);
+  }
+  return out;
+}
+
+/* Prüft eine Adresse.
+   kind: ok | auto (sicher bereinigt) | suggest (gültig, aber Tippfehler vermutet) | invalid */
+function pruefe(roh) {
+  const notizen = [];
+  let s = String(roh);
+  const original = s.trim();
+
+  if (/[\u200B-\u200D\uFEFF\u00AD]/.test(s)) { s = s.replace(/[\u200B-\u200D\uFEFF\u00AD]/g, ''); notizen.push('unsichtbare Zeichen entfernt'); }
+  s = s.replace(/\u00A0/g, ' ').trim();
+
+  const dn = s.match(/<\s*([^<>\s]*@[^<>\s]*)\s*>/);
+  if (dn && s.replace(dn[0], '').trim()) { s = dn[1]; notizen.push('Anzeigename entfernt'); }
+  if (/^mailto:/i.test(s)) { s = s.replace(/^mailto:\s*/i, ''); notizen.push('„mailto:“ entfernt'); }
+
+  let t = s.replace(/\s*[(\[{]\s*(?:at|ät|a)\s*[)\]}]\s*/gi, '@');
+  if (t !== s) { s = t; notizen.push('„(at)“ durch @ ersetzt'); }
+  if (!s.includes('@') && /\S\s+(?:at|ät)\s+\S/i.test(s)) { s = s.replace(/\s+(?:at|ät)\s+/i, '@'); notizen.push('„at“ durch @ ersetzt'); }
+  t = s.replace(/\s*[(\[{]\s*(?:dot|punkt)\s*[)\]}]\s*/gi, '.');
+  if (t !== s) { s = t; notizen.push('„(dot)“ durch Punkt ersetzt'); }
+
+  t = s.replace(/^[\s"'“”„‚‘’<(\[]+|[\s"'“”„‚‘’>)\]]+$/g, '');
+  if (t !== s) { s = t; notizen.push('Klammern oder Anführungszeichen entfernt'); }
+  t = s.replace(/\s*([@.])\s*/g, '$1');
+  if (t !== s) { s = t; notizen.push('Leerzeichen entfernt'); }
+  t = s.replace(/^[.,;:]+|[.,;:]+$/g, '');
+  if (t !== s) { s = t; notizen.push('Satzzeichen am Rand entfernt'); }
+  if (/@{2,}/.test(s)) { s = s.replace(/@{2,}/g, '@'); notizen.push('doppeltes @ entfernt'); }
+
+  let at = s.indexOf('@');
+  if (at >= 0 && at === s.lastIndexOf('@')) {
+    let l = s.slice(0, at), d = s.slice(at + 1).toLowerCase();
+    if (d.includes(',')) { d = d.replace(/,/g, '.'); notizen.push('Komma statt Punkt in der Domain'); }
+    if (/\.{2,}/.test(d) || /\.{2,}/.test(l)) { d = d.replace(/\.{2,}/g, '.'); l = l.replace(/\.{2,}/g, '.'); notizen.push('doppelten Punkt entfernt'); }
+    if (d.startsWith('.')) { d = d.slice(1); notizen.push('Punkt nach dem @ entfernt'); }
+    if (l.startsWith('.')) { l = l.slice(1); notizen.push('Punkt am Anfang entfernt'); }
+    s = l + '@' + d;
+  }
+  const cleaned = s;
+  const grund = formatFehler(cleaned);
+
+  // Vorschlag (braucht Bestätigung)
+  let kand = cleaned;
+  let warum = [];
+  if (/\s/.test(kand)) { kand = kand.replace(/\s+/g, ''); warum.push('ohne Leerzeichen – prüfen, ob dort stattdessen ein Punkt hingehört'); }
+  if (!kand.includes('@')) {
+    const klein = kand.toLowerCase();
+    let treffer = null;
+    for (const k of ALLE_DOMAINS) {
+      if (klein.endsWith(k) && klein.length > k.length + 1) {
+        const vor = kand.slice(0, kand.length - k.length);
+        if (/[qQ."#*(€]$/.test(vor)) { treffer = { vor: vor.slice(0, -1), k, ersatz: vor.slice(-1) }; break; }
+        if (!treffer) treffer = { vor, k, ersatz: '' };
+      }
+    }
+    if (treffer && treffer.vor) {
+      kand = treffer.vor + '@' + treffer.k;
+      warum.push(/q/i.test(treffer.ersatz) ? 'vermutlich „q“ statt @ getippt (AltGr nicht gedrückt)'
+               : treffer.ersatz ? `vermutlich „${treffer.ersatz}“ statt @ getippt` : '@-Zeichen fehlt');
+    }
+  }
+  at = kand.indexOf('@');
+  if (at > 0 && at === kand.lastIndexOf('@')) {
+    let l = kand.slice(0, at), d = kand.slice(at + 1);
+    if (l.includes(',')) { l = l.replace(/,/g, '.').replace(/\.{2,}/g, '.'); warum.push('Komma durch Punkt ersetzt'); }
+    if (/[^\x00-\x7F]/.test(l)) { l = ohneUmlaute(l); warum.push('Umlaute umgeschrieben'); }
+    if (l.endsWith('.')) { l = l.replace(/\.+$/, ''); warum.push('Punkt direkt vor dem @ entfernt'); }
+    const dv = domainVorschlag(d);
+    if (dv) { d = dv.domain; warum.push(dv.warum); }
+    kand = l + '@' + d;
+  }
+  let vorschlag = null;
+  if (kand !== cleaned && !formatFehler(kand)) vorschlag = kand; else warum = [];
+
+  const kind = grund ? 'invalid' : vorschlag ? 'suggest' : notizen.length ? 'auto' : 'ok';
+  return { original, cleaned, kind, grund, notizen, vorschlag, warum };
+}
+
+/* ============================================================
+   2. Dateien lesen (.xlsx ohne Fremdbibliothek, CSV, Zwischenablage)
+   ============================================================ */
+
+async function zipOeffnen(buf) {
+  const dv = new DataView(buf), u8 = new Uint8Array(buf);
+  let e = buf.byteLength - 22;
+  while (e >= 0 && dv.getUint32(e, true) !== 0x06054b50) e--;
+  if (e < 0) throw new Error('Die Datei ist keine lesbare .xlsx-Datei.');
+  const anzahl = dv.getUint16(e + 10, true);
+  let p = dv.getUint32(e + 16, true);
+  const dec = new TextDecoder();
+  const dateien = {};
+  for (let i = 0; i < anzahl; i++) {
+    if (dv.getUint32(p, true) !== 0x02014b50) break;
+    const nl = dv.getUint16(p + 28, true), xl = dv.getUint16(p + 30, true), cl = dv.getUint16(p + 32, true);
+    dateien[dec.decode(u8.subarray(p + 46, p + 46 + nl))] = {
+      methode: dv.getUint16(p + 10, true), groesse: dv.getUint32(p + 20, true), pos: dv.getUint32(p + 42, true)
+    };
+    p += 46 + nl + xl + cl;
+  }
+  return async function text(name) {
+    const f = dateien[name];
+    if (!f) return null;
+    const start = f.pos + 30 + dv.getUint16(f.pos + 26, true) + dv.getUint16(f.pos + 28, true);
+    const daten = u8.subarray(start, start + f.groesse);
+    if (f.methode === 0) return dec.decode(daten);
+    if (f.methode !== 8) throw new Error('Die Datei verwendet eine nicht unterstützte Komprimierung.');
+    if (typeof DecompressionStream === 'undefined')
+      throw new Error('Dieser Browser kann .xlsx-Dateien nicht direkt lesen. Die Zellen in Excel kopieren und rechts einfügen.');
+    const strom = new Blob([daten]).stream().pipeThrough(new DecompressionStream('deflate-raw'));
+    return await new Response(strom).text();
+  };
+}
+
+const xml = s => new DOMParser().parseFromString(s, 'application/xml');
+const kinder = (el, name) => [...el.children].filter(c => c.localName === name);
+
+function siText(si) {
+  let s = '';
+  for (const t of si.getElementsByTagNameNS('*', 't')) if (t.parentNode.localName !== 'rPh') s += t.textContent;
+  return s;
+}
+function spaltenIndex(ref) {
+  let n = 0;
+  for (const ch of ref) { const c = ch.charCodeAt(0); if (c < 65 || c > 90) break; n = n * 26 + (c - 64); }
+  return n - 1;
+}
+
+async function mappeLesen(buf) {
+  const text = await zipOeffnen(buf);
+  const wbXml = await text('xl/workbook.xml');
+  if (!wbXml) throw new Error('Die Datei ist keine lesbare Excel-Arbeitsmappe.');
+  const relXml = await text('xl/_rels/workbook.xml.rels');
+  const rel = {};
+  if (relXml) for (const r of xml(relXml).getElementsByTagNameNS('*', 'Relationship')) rel[r.getAttribute('Id')] = r.getAttribute('Target');
+  const blaetter = [...xml(wbXml).getElementsByTagNameNS('*', 'sheet')].map((s, i) => {
+    const ridAttr = [...s.attributes].find(x => x.localName === 'id' && x.namespaceURI);
+    const rid = ridAttr ? ridAttr.value : s.getAttribute('r:id');
+    let ziel = rel[rid] || `worksheets/sheet${i + 1}.xml`;
+    ziel = ziel.startsWith('/') ? ziel.slice(1) : 'xl/' + ziel;
+    return { name: s.getAttribute('name') || `Blatt ${i + 1}`, pfad: ziel, versteckt: !!s.getAttribute('state') && s.getAttribute('state') !== 'visible' };
+  });
+  if (!blaetter.length) throw new Error('Die Arbeitsmappe enthält kein Tabellenblatt.');
+  const sstXml = await text('xl/sharedStrings.xml');
+  const sst = sstXml ? [...xml(sstXml).getElementsByTagNameNS('*', 'si')].map(siText) : [];
+
+  async function blattLaden(i) {
+    const src = await text(blaetter[i].pfad);
+    if (!src) throw new Error('Das Tabellenblatt konnte nicht gelesen werden.');
+    const zeilen = [];
+    for (const r of xml(src).getElementsByTagNameNS('*', 'row')) {
+      const ri = (parseInt(r.getAttribute('r'), 10) || zeilen.length + 1) - 1;
+      const zeile = zeilen[ri] || (zeilen[ri] = []);
+      let ci = 0;
+      for (const c of kinder(r, 'c')) {
+        const ref = c.getAttribute('r');
+        if (ref) ci = spaltenIndex(ref);
+        const typ = c.getAttribute('t');
+        const v = kinder(c, 'v')[0];
+        let wert = '';
+        if (typ === 's') wert = sst[parseInt(v ? v.textContent : '', 10)] ?? '';
+        else if (typ === 'inlineStr') { const is = kinder(c, 'is')[0]; wert = is ? siText(is) : ''; }
+        else wert = v ? v.textContent : '';
+        zeile[ci++] = wert;
+      }
+    }
+    for (let i2 = 0; i2 < zeilen.length; i2++) {
+      const z = zeilen[i2] || (zeilen[i2] = []);
+      for (let j = 0; j < z.length; j++) if (z[j] == null) z[j] = '';
+    }
+    return zeilen;
+  }
+  return { blaetter, blattLaden };
+}
+
+function trennzeichenErkennen(text) {
+  if (text.includes('\t')) return '\t';
+  const zeilen = text.split(/\r?\n/).filter(z => z.trim()).slice(0, 30);
+  for (const tz of [';', ',']) {
+    const n = zeilen.map(z => z.split(tz).length - 1);
+    if (n[0] > 0 && n.every(x => x === n[0])) return tz;
+  }
+  return null;
+}
+function textTabelle(text) {
+  text = text.replace(/^\uFEFF/, '');
+  const tz = trennzeichenErkennen(text);
+  const zeilen = [];
+  let zeile = [], feld = '', inQ = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (inQ) {
+      if (c === '"') { if (text[i + 1] === '"') { feld += '"'; i++; } else inQ = false; }
+      else feld += c;
+    } else if (c === '"' && feld === '') inQ = true;
+    else if (tz && c === tz) { zeile.push(feld); feld = ''; }
+    else if (c === '\n' || c === '\r') {
+      if (c === '\r' && text[i + 1] === '\n') i++;
+      zeile.push(feld); feld = ''; zeilen.push(zeile); zeile = [];
+    } else feld += c;
+  }
+  if (feld !== '' || zeile.length) { zeile.push(feld); zeilen.push(zeile); }
+  while (zeilen.length && zeilen[zeilen.length - 1].every(f => !f.trim())) zeilen.pop();
+  return zeilen;
+}
+function bytesZuText(u8) {
+  try { return new TextDecoder('utf-8', { fatal: true }).decode(u8); }
+  catch (e) { return new TextDecoder('windows-1252').decode(u8); }
+}
+
+/* ============================================================
+   3. Oberfläche
+   ============================================================ */
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const mz = (n, ein, mehr) => `${n.toLocaleString('de-DE')} ${n === 1 ? ein : mehr}`;
+const ruhig = matchMedia('(prefers-reduced-motion: reduce)');
+// Zahl, die beim ersten Anzeigen hochzählt (CSS @property --n)
+const zahl = n => `<span class="zahl" aria-hidden="true" data-n="${n}" style="--n:${S.frisch ? 0 : n}"></span><span class="sr">${n}</span>`;
+
+const S = {
+  zeilen: [], mappe: null, blatt: 0, quelle: '', kopf: true, ncol: 0,
+  colBeruf: -1, colMail: 0, eintraege: [], leer: 0,
+  filter: 'all', grenze: 150, sep: '; ', block: 0, frisch: false, wechsel: false
+};
+
+function fehlerZeigen(msg) { const el = $('#fehler'); el.hidden = true; el.textContent = msg; if (msg) { void el.offsetWidth; el.hidden = false; } }
+function buchstabe(i) { let s = ''; i++; while (i > 0) { s = String.fromCharCode(65 + (i - 1) % 26) + s; i = Math.floor((i - 1) / 26); } return s; }
+function spaltenName(c) {
+  const k = S.kopf ? String((S.zeilen[0] || [])[c] ?? '').trim() : '';
+  return k || `Spalte ${buchstabe(c)}`;
+}
+
+function spaltenRaten() {
+  const Z = S.zeilen;
+  S.ncol = Z.slice(0, 300).reduce((m, z) => Math.max(m, z.length), 0);
+  S.kopf = Z.length > 1 && !(Z[0] || []).some(c => String(c).includes('@'));
+  const daten = Z.slice(S.kopf ? 1 : 0, 400);
+  const kopf = S.kopf ? Z[0].map(c => String(c ?? '')) : [];
+
+  let best = -1, bestN = 0;
+  for (let c = 0; c < S.ncol; c++) {
+    const n = daten.filter(z => String(z[c] ?? '').includes('@')).length;
+    if (n > bestN) { bestN = n; best = c; }
+  }
+  if (best < 0) best = kopf.findIndex(k => /mail/i.test(k));
+  S.colMail = best < 0 ? 0 : best;
+
+  let b = kopf.findIndex((k, c) => c !== S.colMail && /beruf/i.test(k));
+  if (b < 0) b = kopf.findIndex((k, c) => c !== S.colMail && /fachrichtung|sparte|gruppe/i.test(k));
+  if (b < 0) {
+    let bestQ = 1;
+    for (let c = 0; c < S.ncol; c++) {
+      if (c === S.colMail) continue;
+      const werte = daten.map(z => String(z[c] ?? '').trim()).filter(Boolean);
+      if (werte.length < daten.length * 0.6 || werte.every(w => /^[\d.,\s\/-]+$/.test(w))) continue;
+      const versch = new Set(werte).size;
+      if (versch > Math.max(1, werte.length / 3)) continue;
+      const q = versch / werte.length;
+      if (q < bestQ) { bestQ = q; b = c; }
+    }
+  }
+  S.colBeruf = b;
+}
+
+function zuordnungZeigen() {
+  $('#map').hidden = false;
+  const n = S.zeilen.length - (S.kopf ? 1 : 0);
+  $('#quelle').textContent = `${S.quelle}: ${mz(n, 'Datenzeile', 'Datenzeilen')}`;
+  $('#hdr').checked = S.kopf;
+  const wrap = $('#blattWrap');
+  wrap.hidden = !(S.mappe && S.mappe.blaetter.length > 1);
+  if (!wrap.hidden) $('#blatt').innerHTML = S.mappe.blaetter.map((b, i) => `<option value="${i}"${i === S.blatt ? ' selected' : ''}>${esc(b.name)}</option>`).join('');
+
+  const beispiel = c => { const z = S.zeilen[S.kopf ? 1 : 0] || []; const v = String(z[c] ?? '').trim(); return v ? ` (z. B. ${v.slice(0, 28)})` : ''; };
+  const opt = (c, sel) => `<option value="${c}"${c === sel ? ' selected' : ''}>${esc(spaltenName(c) + (S.kopf ? '' : beispiel(c)))}</option>`;
+  let ob = `<option value="-1"${S.colBeruf < 0 ? ' selected' : ''}>Keine – alle Adressen in eine Liste</option>`, om = '';
+  for (let c = 0; c < S.ncol; c++) { ob += opt(c, S.colBeruf); om += opt(c, S.colMail); }
+  $('#colBeruf').innerHTML = ob;
+  $('#colMail').innerHTML = om;
+  vorschauZeigen();
+}
+
+function vorschauZeigen() {
+  const rolle = c => c === S.colMail ? 'E-Mail' : c === S.colBeruf ? 'Beruf' : '';
+  let h = '<thead><tr>';
+  for (let c = 0; c < S.ncol; c++) h += `<th class="${rolle(c) ? 'gew' : ''}">${esc(spaltenName(c))}${rolle(c) ? `<span class="rolle">wird als ${rolle(c)} gelesen</span>` : ''}</th>`;
+  h += '</tr></thead><tbody>';
+  const start = S.kopf ? 1 : 0;
+  for (const z of S.zeilen.slice(start, start + 4)) {
+    h += '<tr>';
+    for (let c = 0; c < S.ncol; c++) h += `<td class="${rolle(c) ? 'gew' : ''}">${esc(z[c] ?? '')}</td>`;
+    h += '</tr>';
+  }
+  $('#prev').innerHTML = h + '</tbody>';
+}
+
+function nachLaden() {
+  if (!S.zeilen.length) { fehlerZeigen('In den Daten wurde nichts Lesbares gefunden.'); return; }
+  fehlerZeigen('');
+  spaltenRaten();
+  zuordnungZeigen();
+  auswerten();
+}
+
+async function dateiLaden(datei) {
+  fehlerZeigen('');
+  try {
+    const buf = await datei.arrayBuffer();
+    const u8 = new Uint8Array(buf);
+    if (u8[0] === 0x50 && u8[1] === 0x4B) {
+      S.mappe = await mappeLesen(buf);
+      const sichtbar = S.mappe.blaetter.map((b, i) => i).filter(i => !S.mappe.blaetter[i].versteckt);
+      if (!sichtbar.length) sichtbar.push(0);
+      S.blatt = sichtbar[0];
+      S.zeilen = await S.mappe.blattLaden(S.blatt);
+      const hatAdressen = z => z.some(r => r.some(c => String(c).includes('@')));
+      if (!hatAdressen(S.zeilen)) {
+        for (const i of sichtbar.slice(1, 15)) {
+          const z = await S.mappe.blattLaden(i);
+          if (hatAdressen(z)) { S.blatt = i; S.zeilen = z; break; }
+        }
+      }
+    } else if (u8[0] === 0xD0 && u8[1] === 0xCF) {
+      throw new Error('Das alte .xls-Format und kennwortgeschützte Dateien lassen sich hier nicht lesen. Die Datei in Excel als .xlsx speichern oder die Zellen kopieren und rechts einfügen.');
+    } else {
+      S.mappe = null;
+      S.zeilen = textTabelle(bytesZuText(u8));
+    }
+    S.quelle = datei.name;
+    nachLaden();
+  } catch (err) {
+    fehlerZeigen(err.message || 'Die Datei konnte nicht gelesen werden.');
+  }
+}
+
+function textLaden(text, quelle) {
+  S.mappe = null;
+  S.zeilen = textTabelle(text);
+  S.quelle = quelle;
+  nachLaden();
+}
+
+function auswerten() {
+  const Z = S.zeilen;
+  let id = 0;
+  S.eintraege = []; S.leer = 0;
+  for (let i = S.kopf ? 1 : 0; i < Z.length; i++) {
+    const z = Z[i] || [];
+    const zelle = String(z[S.colMail] ?? '').trim();
+    if (!zelle || PLATZHALTER.test(zelle)) { if (z.some(c => String(c ?? '').trim())) S.leer++; continue; }
+    const beruf = S.colBeruf < 0 ? '' : String(z[S.colBeruf] ?? '').replace(/\s+/g, ' ').trim();
+    for (const teil of zelleTeilen(zelle)) {
+      const a = pruefe(teil);
+      S.eintraege.push(Object.assign(a, { id: id++, zeile: i + 1, beruf, wert: a.cleaned, aus: false, entschieden: false }));
+    }
+  }
+  S.grenze = 150; S.filter = 'all'; S.frisch = true;
+  $('#s2').hidden = false;
+  $('#s3').hidden = S.eintraege.length === 0;
+  pruefungZeigen();
+  gruppenZeigen();
+}
+
+/* ---------- Schritt 2 ---------- */
+
+const ART = { invalid: 'Ungültig', suggest: 'Tippfehler vermutet', auto: 'Automatisch korrigiert' };
+const ART_FARBE = { ok: 'var(--lcd-1)', auto: 'var(--lcd-2)', suggest: 'var(--marker)', invalid: 'var(--fehler)' };
+
+function diffMarkieren(a, b) {
+  const n = a.length, m = b.length;
+  const gl = (i, j) => a[i].toLowerCase() === b[j].toLowerCase();
+  const dp = Array.from({ length: n + 1 }, () => new Uint16Array(m + 1));
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    dp[i][j] = gl(i, j) ? dp[i + 1][j + 1] + 1 : Math.max(dp[i + 1][j], dp[i][j + 1]);
+  let i = 0, j = 0, ha = '', hb = '';
+  while (i < n || j < m) {
+    if (i < n && j < m && gl(i, j)) { ha += esc(a[i++]); hb += esc(b[j++]); }
+    else if (j < m && (i === n || dp[i][j + 1] >= dp[i + 1][j])) hb += `<mark>${esc(b[j++])}</mark>`;
+    else ha += `<mark>${esc(a[i++])}</mark>`;
+  }
+  return [ha, hb];
+}
+
+function befund(e) {
+  const t = [];
+  if (e.grund) t.push(`Ungültiges Format: ${e.grund}.`);
+  if (e.warum.length) t.push(`Zum Vorschlag: ${e.warum.join('; ')}.`);
+  if (e.notizen.length) t.push(`Automatisch bereinigt: ${e.notizen.join(', ')}.`);
+  return t.join(' ');
+}
+const offenerVorschlag = e => e.vorschlag && !e.entschieden && !e.aus;
+
+function zustand(e) {
+  if (e.aus) return ['aus', 'ausgeschlossen'];
+  const f = formatFehler(e.wert);
+  if (f) return ['schlecht', `fehlt in der Liste – ${f}`];
+  if (offenerVorschlag(e)) return ['offen', 'Original wird verwendet, Vorschlag offen'];
+  return ['gut', 'wird verwendet'];
+}
+
+function etikett(e) {
+  if (e.aus) return ['c-aus', 'Ausgeschlossen'];
+  if (e.kind !== 'auto' && !formatFehler(e.wert) && !offenerVorschlag(e))
+    return e.wert.toLowerCase() === e.cleaned.toLowerCase() ? ['c-fertig', 'Geprüft'] : ['c-fertig', 'Gepixt'];
+  return ['', ART[e.kind]];
+}
+function zeileHtml(e, i, kl) {
+  const ziel = e.vorschlag || e.cleaned;
+  const [ha, hb] = diffMarkieren(e.original, ziel);
+  const [zk, zt] = zustand(e);
+  const offen = offenerVorschlag(e);
+  return `<div class="rv k-${e.kind}${e.aus ? ' ist-aus' : ''}${kl ? ' ' + kl : ''}" data-id="${e.id}"${kl ? ` style="--i:${Math.min(i, 14)}"` : ''}>
+    <div class="rv-meta"><span class="chip ${etikett(e)[0]}">${etikett(e)[1]}</span><span>Zeile ${e.zeile}</span><span class="bf">${esc(e.beruf || (S.colBeruf < 0 ? '' : 'ohne Berufsangabe'))}</span></div>
+    <div class="rv-body">
+      <div class="zeile"><span class="lab">Eingetragen</span><code>${ha}</code></div>
+      ${e.vorschlag ? `<div class="zeile"><span class="lab">Vorschlag</span><code>${hb}</code></div>` : ''}
+      <div class="zeile nutz"><label class="lab" for="v${e.id}">Verwendet</label><div><input class="val z-${zk}" id="v${e.id}" value="${esc(e.wert)}" spellcheck="false" autocomplete="off" autocapitalize="off"><span class="st ${zk}">${esc(zt)}</span></div></div>
+      <p class="warum">${esc(befund(e))}</p>
+      <div class="knoepfe">
+        ${offen ? '<button type="button" class="btn sm haupt" data-act="ueb">Vorschlag übernehmen</button>' : ''}
+        ${offen && e.kind === 'suggest' ? '<button type="button" class="btn sm" data-act="beh">Original behalten</button>' : ''}
+        <button type="button" class="btn sm" data-act="aus">${e.aus ? 'Wieder aufnehmen' : 'Ausschließen'}</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function pruefungZeigen() {
+  $('#pruef').classList.toggle('frisch', S.frisch);
+  pruefungInhalt();
+  if (S.frisch) {
+    S.frisch = false;
+    const zs = document.querySelectorAll('#s2 .zahl');
+    void document.body.offsetWidth;
+    zs.forEach(el => el.style.setProperty('--n', el.dataset.n));
+  }
+}
+function pruefungInhalt() {
+  const E = S.eintraege, n = E.length, z = { ok: 0, auto: 0, suggest: 0, invalid: 0 };
+  for (const e of E) z[e.kind]++;
+  const auff = n - z.ok;
+
+  if (!n) {
+    $('#summe').innerHTML = `<strong>In der gewählten Spalte stehen keine E-Mail-Adressen.</strong> Oben bei „Spalte mit der E-Mail-Adresse“ eine andere Spalte wählen.`;
+    $('#pruef').hidden = true;
+    return;
+  }
+  $('#pruef').hidden = false;
+  const berufe = new Set(E.map(e => e.beruf.toLowerCase())).size;
+  $('#summe').innerHTML = `<strong>${zahl(n)} ${n === 1 ? 'Adresse' : 'Adressen'}</strong> gelesen${S.colBeruf >= 0 ? ` in ${mz(berufe, 'Beruf', 'Berufen')}` : ''}, ` +
+    `${z.ok.toLocaleString('de-DE')} davon ohne Befund.` + (S.leer ? ` ${mz(S.leer, 'Zeile', 'Zeilen')} ohne Adresse übersprungen.` : '');
+
+  $('#balken').innerHTML = ['ok', 'auto', 'suggest', 'invalid'].filter(k => z[k]).map((k, i) => `<span class="b-${k}" style="flex:${z[k]};--i:${i}"></span>`).join('');
+
+  const fb = (k, text, anz) => `<button type="button" class="btn sm" data-f="${k}" aria-pressed="${S.filter === k}"${anz ? '' : ' disabled'}>` +
+    (k === 'all' ? '' : `<span class="punkt" style="background:${ART_FARBE[k]}"></span>`) + `${text} (${zahl(anz)})</button>`;
+  $('#filter').innerHTML = fb('all', 'Alle Auffälligkeiten', auff) + fb('invalid', 'Ungültig', z.invalid) + fb('suggest', 'Tippfehler vermutet', z.suggest) + fb('auto', 'Automatisch korrigiert', z.auto);
+
+  $('#alleUeb').disabled = !E.some(offenerVorschlag);
+  $('#logKopie').disabled = !auff;
+
+  if (!auff) { $('#liste').innerHTML = '<p class="leer">Alles sauber! Keine Auffälligkeiten – alle Adressen haben ein gültiges Format.</p>'; return; }
+  const rang = { invalid: 0, suggest: 1, auto: 2 };
+  const liste = E.filter(e => e.kind !== 'ok' && (S.filter === 'all' || e.kind === S.filter))
+                 .sort((a, b) => rang[a.kind] - rang[b.kind] || a.zeile - b.zeile);
+  let h = liste.slice(0, S.grenze).map((e, i) => zeileHtml(e, i, S.frisch ? 'neu' : S.wechsel ? 'wechsel' : '')).join('');
+  if (liste.length > S.grenze) h += `<button type="button" class="btn mehr" id="mehr">Weitere ${Math.min(150, liste.length - S.grenze)} anzeigen</button>`;
+  $('#liste').innerHTML = h;
+}
+
+/* ---------- Schritt 3 ---------- */
+
+function gruppenBilden() {
+  const map = new Map();
+  const alle = { name: 'Alle Berufe zusammen', liste: [], gesehen: new Set(), doppelt: 0, fehlt: 0, gesamt: true };
+  for (const e of S.eintraege) {
+    const key = e.beruf.toLowerCase();
+    if (!map.has(key)) map.set(key, { name: e.beruf || (S.colBeruf < 0 ? 'Alle Adressen' : 'Ohne Berufsangabe'), liste: [], gesehen: new Set(), doppelt: 0, fehlt: 0 });
+    const g = map.get(key);
+    if (e.aus || formatFehler(e.wert)) { g.fehlt++; alle.fehlt++; continue; }
+    const k = e.wert.toLowerCase();
+    if (g.gesehen.has(k)) g.doppelt++; else { g.gesehen.add(k); g.liste.push(e.wert); }
+    if (alle.gesehen.has(k)) alle.doppelt++; else { alle.gesehen.add(k); alle.liste.push(e.wert); }
+  }
+  const gr = [...map.values()].sort((a, b) => a.name.localeCompare(b.name, 'de'));
+  if (gr.length > 1) gr.push(alle);
+  return gr;
+}
+function bloecke(liste) {
+  if (!S.block || liste.length <= S.block) return [liste];
+  const out = [];
+  for (let i = 0; i < liste.length; i += S.block) out.push(liste.slice(i, i + S.block));
+  return out;
+}
+
+let GRUPPEN = [];
+function gruppenZeigen() {
+  if (!S.eintraege.length) return;
+  GRUPPEN = gruppenBilden();
+  const vo = S.eintraege.filter(e => e.kind === 'suggest' && offenerVorschlag(e)).length;
+  const ung = S.eintraege.filter(e => !e.aus && formatFehler(e.wert)).length;
+  const teile = [];
+  if (ung) teile.push(`${mz(ung, 'ungültige Adresse fehlt', 'ungültige Adressen fehlen')} in den Listen`);
+  if (vo) teile.push(`${mz(vo, 'Tippfehler-Vorschlag ist', 'Tippfehler-Vorschläge sind')} noch offen, die Adressen stehen unverändert in den Listen`);
+  $('#offen').hidden = !teile.length;
+  $('#offen').textContent = teile.length ? `Noch zu klären in Schritt 2: ${teile.join('; ')}.` : '';
+
+  $('#gruppen').innerHTML = GRUPPEN.map((g, gi) => {
+    const bl = bloecke(g.liste);
+    const info = [mz(g.liste.length, 'Adresse', 'Adressen')];
+    if (g.doppelt) info.push(`${mz(g.doppelt, 'Dublette', 'Dubletten')} entfernt`);
+    if (g.fehlt) info.push(`${g.fehlt} ausgelassen`);
+    const kn = bl.length === 1
+      ? `<button type="button" class="btn haupt" data-g="${gi}" data-b="0"${g.liste.length ? '' : ' disabled'}>Kopieren</button>`
+      : bl.map((b, bi) => `<button type="button" class="btn sm haupt" data-g="${gi}" data-b="${bi}">Block ${bi + 1} kopieren (${b.length})</button>`).join('');
+    return `<div class="grp${g.gesamt ? ' gesamt' : ''}">
+      <div><h3>${esc(g.name)}</h3><p class="zahlen">${info.join(', ')}</p></div>
+      <textarea readonly aria-label="BCC-Liste ${esc(g.name)}" id="t${gi}">${esc(bl.map(b => b.join(S.sep)).join('\n\n'))}</textarea>
+      <div class="g-btns">${kn}</div>
+    </div>`;
+  }).join('');
+}
+
+async function kopieren(text) {
+  try {
+    if (navigator.clipboard && window.isSecureContext) { await navigator.clipboard.writeText(text); return true; }
+  } catch (e) { /* weiter mit Ausweichweg */ }
+  const ta = document.createElement('textarea');
+  ta.value = text; ta.setAttribute('readonly', '');
+  ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+  document.body.appendChild(ta); ta.select();
+  let ok = false;
+  try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+  ta.remove();
+  return ok;
+}
+let toastTimer;
+function melden(text) {
+  $('#toastText').textContent = text;
+  $('#live').textContent = text;
+  $('#toast').classList.add('an');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => $('#toast').classList.remove('an'), 2800);
+}
+function rueckmeldung(btn, ok, text, punkte, sonst) {
+  const alt = btn.dataset.alt || btn.textContent;
+  btn.dataset.alt = alt;
+  btn.textContent = ok ? 'Kopiert' : 'Kopieren gesperrt';
+  btn.classList.toggle('ok', ok);
+  if (ok && punkte) {
+    const p = document.createElement('span');
+    p.className = 'plus'; p.textContent = '+' + punkte; p.setAttribute('aria-hidden', 'true');
+    btn.appendChild(p);
+  }
+  melden(ok ? text : sonst);
+  clearTimeout(btn._t);
+  btn._t = setTimeout(() => { btn.textContent = alt; btn.classList.remove('ok'); }, 1800);
+}
+
+/* ---------- Ereignisse ---------- */
+
+$('#file').addEventListener('change', e => { if (e.target.files[0]) dateiLaden(e.target.files[0]); e.target.value = ''; });
+const drop = $('#drop');
+['dragenter', 'dragover'].forEach(t => drop.addEventListener(t, e => { e.preventDefault(); drop.classList.add('over'); }));
+['dragleave', 'drop'].forEach(t => drop.addEventListener(t, e => { e.preventDefault(); drop.classList.remove('over'); }));
+drop.addEventListener('drop', e => { const f = e.dataTransfer.files[0]; if (f) dateiLaden(f); });
+window.addEventListener('dragover', e => e.preventDefault());
+window.addEventListener('drop', e => e.preventDefault());
+
+$('#paste').addEventListener('paste', e => {
+  const text = e.clipboardData.getData('text/plain');
+  if (!text.trim()) return;
+  e.preventDefault();
+  e.target.value = '';
+  textLaden(text, 'Eingefügte Daten');
+});
+$('#paste').addEventListener('change', e => { if (e.target.value.trim()) { textLaden(e.target.value, 'Eingefügte Daten'); e.target.value = ''; } });
+
+$('#demo').addEventListener('click', () => {
+  const d = [
+    ['Name', 'Ausbildungsberuf', 'E-Mail'],
+    ['Beispiel, Erika', 'Gärtner/in – Zierpflanzenbau', 'erika.beispiel@gmx.de'],
+    ['Muster, Jonas', 'Gärtner/in – Zierpflanzenbau', 'jonas.muster@gmial.com'],
+    ['Probe, Lena', 'Gärtner/in – Zierpflanzenbau', ' lena.probe@web,de '],
+    ['Test, Emre', 'Gärtner/in – Zierpflanzenbau', 'Erika.Beispiel@gmx.de'],
+    ['Vorlage, Mia', 'Gärtner/in – Garten- und Landschaftsbau', 'mia.vorlage(at)t-online.de'],
+    ['Platzhalter, Ben', 'Gärtner/in – Garten- und Landschaftsbau', 'ben.platzhalterqgmx.de'],
+    ['Entwurf, Sofia', 'Gärtner/in – Garten- und Landschaftsbau', 'sofia.entwurf@hotmail.con'],
+    ['Skizze, Paul', 'Gärtner/in – Garten- und Landschaftsbau', 'paul.skizze@galabau-beispiel.de; ausbildung@galabau-beispiel.de'],
+    ['Modell, Hanna', 'Gärtner/in – Garten- und Landschaftsbau', 'keine'],
+    ['Schema, Luca', 'Gärtner/in – Baumschule', 'luca.schema@googelmail.com'],
+    ['Raster, Jörg', 'Gärtner/in – Baumschule', 'jörg.raster@outlook.de'],
+    ['Muster, Aylin', 'Gärtner/in – Baumschule', 'mailto:aylin.muster@posteo.de'],
+    ['Probe, Finn', 'Gärtner/in – Gemüsebau', 'finn.probe@tonline.de'],
+    ['Beispiel, Noah', 'Gärtner/in – Gemüsebau', 'noah beispiel@web.de'],
+    ['Test, Clara', 'Gärtner/in – Gemüsebau', 'clara.test@gmx'],
+    ['Vorlage, Tim', 'Gärtner/in – Gemüsebau', 'tim.vorlage@icloud.com'],
+    ['Entwurf, Nele', 'Gärtner/in – Gemüsebau', 'www.gemuese-beispiel.de']
+  ];
+  S.mappe = null; S.zeilen = d; S.quelle = 'Erfundene Beispieldaten';
+  nachLaden();
+});
+
+$('#blatt').addEventListener('change', async e => {
+  try { S.blatt = +e.target.value; S.zeilen = await S.mappe.blattLaden(S.blatt); nachLaden(); }
+  catch (err) { fehlerZeigen(err.message); }
+});
+$('#colBeruf').addEventListener('change', e => { S.colBeruf = +e.target.value; vorschauZeigen(); auswerten(); });
+$('#colMail').addEventListener('change', e => { S.colMail = +e.target.value; vorschauZeigen(); auswerten(); });
+$('#hdr').addEventListener('change', e => { S.kopf = e.target.checked; zuordnungZeigen(); auswerten(); });
+
+$('#filter').addEventListener('click', e => {
+  const b = e.target.closest('[data-f]');
+  if (!b) return;
+  S.filter = b.dataset.f; S.grenze = 150;
+  S.wechsel = true; pruefungZeigen(); S.wechsel = false;
+});
+
+const eintragVon = el => { const r = el.closest('.rv'); return r ? [S.eintraege[+r.dataset.id], r] : [null, null]; };
+let gTimer;
+const gruppenBald = () => { clearTimeout(gTimer); gTimer = setTimeout(gruppenZeigen, 150); };
+
+$('#liste').addEventListener('click', e => {
+  if (e.target.id === 'mehr') { S.grenze += 150; pruefungZeigen(); return; }
+  const b = e.target.closest('[data-act]');
+  if (!b) return;
+  const [en, row] = eintragVon(b);
+  if (!en) return;
+  if (b.dataset.act === 'ueb') { en.wert = en.vorschlag; en.entschieden = true; }
+  else if (b.dataset.act === 'beh') { en.entschieden = true; }
+  else if (b.dataset.act === 'aus') { en.aus = !en.aus; }
+  row.outerHTML = zeileHtml(en);
+  const neu = $('#liste').querySelector(`[data-id="${en.id}"]`);
+  if (neu && b.dataset.act !== 'aus') neu.classList.add('blitz');
+  $('#alleUeb').disabled = !S.eintraege.some(offenerVorschlag);
+  gruppenZeigen();
+});
+$('#liste').addEventListener('input', e => {
+  if (!e.target.classList.contains('val')) return;
+  const [en, row] = eintragVon(e.target);
+  if (!en) return;
+  en.wert = e.target.value.trim();
+  en.entschieden = true;
+  const [zk, zt] = zustand(en);
+  const st = row.querySelector('.st');
+  st.className = 'st ' + zk; st.textContent = zt;
+  e.target.className = 'val z-' + zk;
+  const chip = row.querySelector('.chip'), [ck, ct] = etikett(en);
+  chip.className = 'chip ' + ck; chip.textContent = ct;
+  $('#alleUeb').disabled = !S.eintraege.some(offenerVorschlag);
+  gruppenBald();
+});
+
+$('#alleUeb').addEventListener('click', () => {
+  const ids = [];
+  for (const e of S.eintraege) if (offenerVorschlag(e)) { e.wert = e.vorschlag; e.entschieden = true; ids.push(e.id); }
+  pruefungZeigen(); gruppenZeigen();
+  for (const id of ids) { const r = $('#liste').querySelector(`[data-id="${id}"]`); if (r) r.classList.add('blitz'); }
+});
+$('#logKopie').addEventListener('click', async e => {
+  const z = v => String(v).replace(/[\t\r\n]+/g, ' ');
+  const zeilen = [['Zeile', 'Beruf', 'Eingetragen', 'Verwendet', 'Befund'].join('\t')];
+  for (const en of S.eintraege) {
+    if (en.kind === 'ok') continue;
+    const verw = en.aus || formatFehler(en.wert) ? '' : en.wert;
+    zeilen.push([en.zeile, z(en.beruf), z(en.original), z(verw), z(befund(en))].join('\t'));
+  }
+  rueckmeldung(e.currentTarget, await kopieren(zeilen.join('\r\n')), 'Korrekturliste kopiert – in Excel mit Strg+V einfügen.', 0, 'Kopieren ist in diesem Fenster gesperrt.');
+});
+
+document.querySelectorAll('input[name="sep"]').forEach(r => r.addEventListener('change', e => { S.sep = e.target.value; gruppenZeigen(); }));
+$('#block').addEventListener('input', e => { S.block = Math.max(0, parseInt(e.target.value, 10) || 0); gruppenZeigen(); });
+
+$('#gruppen').addEventListener('click', async e => {
+  const b = e.target.closest('[data-g]');
+  if (!b) return;
+  const g = GRUPPEN[+b.dataset.g];
+  const teil = bloecke(g.liste)[+b.dataset.b] || [];
+  const ok = await kopieren(teil.join(S.sep));
+  rueckmeldung(b, ok, `${mz(teil.length, 'Adresse', 'Adressen')} kopiert – ab ins BCC-Feld!`, teil.length, 'Kopieren ist hier gesperrt. Die Liste ist markiert – Strg+C drücken.');
+  if (!ok) { const ta = $('#t' + b.dataset.g); ta.focus(); ta.select(); }
+});
+
+/* ---------- Kopf: Vorführung mit der echten Prüflogik ---------- */
+(function vorfuehrung() {
+  const bsp = ['jonas@gmial.com', 'mia(at)t-online.de', 'lena@web,de', 'benqgmx.de', 'finn@tonline.de', 'sofia@hotmail.con', 'jörg@outlook.de', 'clara@gmx'];
+  const dlg = $('#dialog'), d1 = $('#d1'), d2 = $('#d2');
+  let i = 0;
+  function zeigen() {
+    const roh = bsp[i++ % bsp.length], r = pruefe(roh);
+    const [ha, hb] = diffMarkieren(roh, r.vorschlag || r.cleaned);
+    dlg.classList.remove('lauf');
+    d1.innerHTML = ha; d2.innerHTML = hb;
+    d1.style.width = roh.length + 'ch';
+    d1.style.animationTimingFunction = `steps(${roh.length})`;
+    void dlg.offsetWidth;
+    dlg.classList.add('lauf');
+  }
+  zeigen();
+  if (!ruhig.matches) setInterval(() => { if (!document.hidden) zeigen(); }, 4600);
+})();
+</script>
+</body>
+</html>
