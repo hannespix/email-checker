@@ -30,6 +30,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
+      - name: Ensure Impressum link
+        # Updates ersetzen index.html komplett. Fehlt danach jeder Verweis auf
+        # impressum.html, bekommt dieses Deployment eine schlichte Fußzeile mit
+        # Impressum-Link, damit die Seite nie ohne Impressum online geht.
+        # Das Repo selbst bleibt dabei unverändert.
+        run: |
+          if grep -q 'impressum\.html' index.html; then
+            echo "Impressum-Link vorhanden."
+          else
+            echo "::warning file=index.html::Kein Link auf impressum.html gefunden. Dieses Deployment bekommt eine schlichte Fußzeile. Bitte die Fußzeile wieder in index.html einsetzen (siehe CLAUDE.md)."
+            footer='<footer style="padding:1rem 1.5rem 1.5rem;text-align:center"><a href="impressum.html">Impressum</a></footer>'
+            if grep -q '</body>' index.html; then
+              sed -i "s|</body>|${footer}\n</body>|" index.html
+            else
+              printf '%s\n' "$footer" >> index.html
+            fi
+          fi
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
