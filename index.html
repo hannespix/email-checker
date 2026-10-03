@@ -250,7 +250,7 @@ mark { color: inherit; padding: 0 1px; background: linear-gradient(var(--marker)
 @starting-style { .toast.an { opacity: 0; translate: 0 140%; } }
 .toast .pixi { width: 2.6rem; height: 2.6rem; animation-duration: .5s; }
 
-/* ---------- Fußzeile mit Impressum ---------- */
+/* ---------- Fußzeile mit Impressum und Datenschutz ---------- */
 body { min-height: 100vh; }
 /* Bei kurzem Inhalt sitzt die Leiste am unteren Fensterrand, sonst am Seitenende. */
 .fuss { position: sticky; top: 100vh; background: var(--lcd-3); color: var(--lcd-0); border-top: 4px solid var(--lcd-0); }
@@ -260,8 +260,10 @@ body { min-height: 100vh; }
               linear-gradient(90deg, rgba(15, 56, 15, .08) 1px, transparent 1px) 0 0 / 4px 100%;
 }
 .fuss .wrap { position: relative; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .5rem 1.5rem; padding-top: 1rem; padding-bottom: 1.1rem; font: 400 20px/1 var(--pixel); }
-.fuss a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.fuss nav { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; }
+.fuss a { color: inherit; font-weight: 400; text-decoration-thickness: 2px; text-underline-offset: 3px; }
 .fuss a:hover { background: var(--lcd-4); }
+.fuss a[aria-current="page"] { text-decoration: none; }
 
 @media (max-width: 860px) {
   h1 { font-size: 70px; }
@@ -386,7 +388,10 @@ body { min-height: 100vh; }
 <footer class="fuss">
   <div class="wrap">
     <span>Pix &amp; fertig</span>
-    <a href="impressum.html">Impressum</a>
+    <nav aria-label="Rechtliches">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </nav>
   </div>
 </footer>
 <div class="toast" id="toast" aria-hidden="true"><svg class="pixi" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect class="innen" x="1" y="1" width="14" height="12"/><path class="aussen" d="M1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM7 0h1v1h-1zM8 0h1v1h-1zM9 0h1v1h-1zM10 0h1v1h-1zM11 0h1v1h-1zM12 0h1v1h-1zM13 0h1v1h-1zM14 0h1v1h-1zM0 1h1v1h-1zM15 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM14 2h1v1h-1zM15 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM12 3h1v1h-1zM13 3h1v1h-1zM15 3h1v1h-1zM0 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM10 4h1v1h-1zM11 4h1v1h-1zM15 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM7 5h1v1h-1zM8 5h1v1h-1zM9 5h1v1h-1zM15 5h1v1h-1zM0 6h1v1h-1zM15 6h1v1h-1zM0 7h1v1h-1zM15 7h1v1h-1zM0 8h1v1h-1zM15 8h1v1h-1zM0 9h1v1h-1zM15 9h1v1h-1zM0 10h1v1h-1zM6 10h1v1h-1zM9 10h1v1h-1zM15 10h1v1h-1zM0 11h1v1h-1zM7 11h1v1h-1zM8 11h1v1h-1zM15 11h1v1h-1zM0 12h1v1h-1zM15 12h1v1h-1zM1 13h1v1h-1zM2 13h1v1h-1zM3 13h1v1h-1zM4 13h1v1h-1zM5 13h1v1h-1zM6 13h1v1h-1zM7 13h1v1h-1zM8 13h1v1h-1zM9 13h1v1h-1zM10 13h1v1h-1zM11 13h1v1h-1zM12 13h1v1h-1zM13 13h1v1h-1zM14 13h1v1h-1zM3 14h1v1h-1zM4 14h1v1h-1zM11 14h1v1h-1zM12 14h1v1h-1zM3 15h1v1h-1zM4 15h1v1h-1zM11 15h1v1h-1zM12 15h1v1h-1z"/><path class="auge" d="M4 7h1v1h-1zM5 7h1v1h-1zM10 7h1v1h-1zM11 7h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM10 8h1v1h-1zM11 8h1v1h-1z"/></svg><span id="toastText"></span></div>
