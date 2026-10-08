@@ -74,6 +74,24 @@ h1 span { display: inline-block; animation: fallen .6s var(--feder) both; animat
 .lede { margin: 0; max-width: 34ch; font-size: 1.25rem; line-height: 1.35; font-weight: 600; }
 .lokal { margin: .6rem 0 0; max-width: 46ch; font-size: .9375rem; }
 
+.anleitung {
+  grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1.25fr; gap: 1rem 3rem;
+  margin: calc(var(--px) + .75rem) var(--px) var(--px); padding: 1.1rem 1.4rem 1.25rem; background: var(--lcd-4);
+  box-shadow: 0 calc(-1 * var(--px)) 0 0 var(--lcd-0), 0 var(--px) 0 0 var(--lcd-0), calc(-1 * var(--px)) 0 0 0 var(--lcd-0), var(--px) 0 0 0 var(--lcd-0),
+              calc(2 * var(--px)) calc(3 * var(--px)) 0 0 var(--lcd-1);
+}
+.anleitung h2 { margin: 0 0 .5rem; font: 400 30px/1 var(--pixel); color: var(--lcd-1); }
+.anleitung p { max-width: 52ch; }
+.anleitung p:last-child { margin-bottom: 0; }
+.anleitung ol { margin: 0; padding: 0; list-style: none; counter-reset: schritt; }
+.anleitung li { position: relative; padding-left: 2.6rem; margin-bottom: .55rem; max-width: 58ch; counter-increment: schritt; }
+.anleitung li:last-child { margin-bottom: 0; }
+.anleitung li::before {
+  content: counter(schritt); position: absolute; left: 0; top: .05rem; display: grid; place-items: center; width: 1.9rem; height: 1.9rem;
+  background: var(--lcd-0); color: var(--lcd-4); font: 400 20px/1 var(--pixel);
+}
+.anleitung b { font-weight: 700; }
+
 .dialog {
   margin: var(--px); padding: 1rem 1.15rem; min-width: 23.5rem; background: var(--lcd-4);
   box-shadow: 0 calc(-1 * var(--px)) 0 0 var(--lcd-0), 0 var(--px) 0 0 var(--lcd-0), calc(-1 * var(--px)) 0 0 0 var(--lcd-0), var(--px) 0 0 0 var(--lcd-0),
@@ -237,6 +255,7 @@ mark { color: inherit; padding: 0 1px; background: linear-gradient(var(--marker)
 .grp textarea { width: 100%; height: 4.6rem; resize: vertical; font-family: var(--mono); font-size: .8125rem; line-height: 1.45; border-color: var(--linie); background: #f8faf3; }
 .g-btns { display: flex; flex-direction: column; gap: .5rem; min-width: 9.5rem; }
 .grp.gesamt { border-top: var(--px) solid var(--lcd-0); }
+.bcc-tipp { margin: 1rem 0 0; padding-top: .9rem; border-top: 2px solid var(--linie); }
 
 /* ---------- Meldung unten rechts ---------- */
 .toast {
@@ -268,6 +287,7 @@ body { min-height: 100vh; }
 @media (max-width: 860px) {
   h1 { font-size: 70px; }
   .kopf { grid-template-columns: minmax(0, 1fr); }
+  .anleitung { grid-template-columns: minmax(0, 1fr); padding: 1rem 1.1rem 1.1rem; }
   .dialog { min-width: 0; max-width: 24rem; }
 }
 @media (max-width: 760px) {
@@ -305,12 +325,27 @@ body { min-height: 100vh; }
           <p class="unter">Pix’ E-Mail-Checker</p>
         </div>
       </div>
-      <p class="lede">Adressen aus Excel rein, Tippfehler raus, BCC-Liste je Beruf fertig.</p>
+      <p class="lede">Adressen aus Excel rein, Tippfehler raus, BCC-Liste je Gruppe fertig.</p>
       <p class="lokal">Läuft komplett in diesem Browserfenster. Keine Adresse verlässt den Rechner.</p>
     </div>
     <div class="dialog" id="dialog" aria-hidden="true">
       <div class="dz dz1"><span class="dl">vertippt</span><span><code id="d1"></code></span></div>
       <div class="dz dz2"><span class="dl">gepixt</span><span><code id="d2"></code></span></div>
+    </div>
+    <div class="anleitung">
+      <div>
+        <h2>Was macht das Tool?</h2>
+        <p>Es nimmt eine Excel-Liste mit E-Mail-Adressen, prüft jede Adresse auf Tippfehler und baut daraus fertige Empfängerlisten für Outlook.</p>
+        <p>Hat die Liste eine Spalte wie „Beruf“, „Abteilung“ oder „Jahrgang“, bekommt jede Gruppe ihre eigene Liste. Ohne so eine Spalte kommen alle Adressen in eine Liste.</p>
+      </div>
+      <div>
+        <h2>So geht’s</h2>
+        <ol>
+          <li><b>Daten laden:</b> Excel-Datei hineinziehen – oder in Excel die Spalten markieren, kopieren und unten einfügen.</li>
+          <li><b>Prüfen:</b> Vorschläge durchsehen und übernehmen. Rot markierte Adressen fehlen in der Liste, bis sie korrigiert sind.</li>
+          <li><b>Kopieren:</b> In Outlook eine neue E-Mail öffnen und die Adressen mit Strg+V ins Bcc-Feld einfügen.</li>
+        </ol>
+      </div>
     </div>
   </div>
 </header>
@@ -329,7 +364,7 @@ body { min-height: 100vh; }
         </label>
         <div class="einf">
           <label for="paste">Oder Zellen aus Excel einfügen</label>
-          <textarea id="paste" placeholder="In Excel die Spalten mit Beruf und E-Mail markieren, Strg+C drücken, hier klicken und Strg+V drücken."></textarea>
+          <textarea id="paste" placeholder="In Excel die Spalten markieren (mit Überschriften), Strg+C drücken, hier klicken und Strg+V drücken."></textarea>
         </div>
       </div>
       <p class="demo klein">Erst ausprobieren? <button type="button" class="textlink" id="demo">Erfundene Beispieldaten laden</button></p>
@@ -339,9 +374,9 @@ body { min-height: 100vh; }
         <p class="quelle" id="quelle"></p>
         <div class="felder">
           <label id="blattWrap" hidden>Tabellenblatt <select id="blatt"></select></label>
-          <label>Spalte mit dem Beruf <select id="colBeruf"></select></label>
-          <label>Spalte mit der E-Mail-Adresse <select id="colMail"></select></label>
-          <label class="haken"><input type="checkbox" id="hdr"> Erste Zeile enthält Überschriften</label>
+          <label>Spalte mit den E-Mail-Adressen <select id="colMail"></select></label>
+          <label>Listen aufteilen nach <select id="colGruppe"></select></label>
+          <label class="haken"><input type="checkbox" id="hdr"> <span id="hdrText">Erste Zeile enthält Überschriften</span></label>
         </div>
         <div class="vorschau"><table id="prev"></table></div>
       </div>
@@ -381,6 +416,7 @@ body { min-height: 100vh; }
       </div>
       <p class="hinweis" id="offen" hidden></p>
       <div id="gruppen"></div>
+      <p class="klein bcc-tipp">Kein Bcc-Feld in Outlook zu sehen? In der neuen E-Mail oben auf „Optionen“ und dann auf „Bcc“ klicken. Das Feld bleibt danach eingeblendet.</p>
     </div>
   </section>
 
@@ -798,75 +834,106 @@ const ruhig = matchMedia('(prefers-reduced-motion: reduce)');
 const zahl = n => `<span class="zahl" aria-hidden="true" data-n="${n}" style="--n:${S.frisch ? 0 : n}"></span><span class="sr">${n}</span>`;
 
 const S = {
-  zeilen: [], mappe: null, blatt: 0, quelle: '', kopf: true, ncol: 0,
-  colBeruf: -1, colMail: 0, eintraege: [], leer: 0,
+  zeilen: [], mappe: null, blatt: 0, quelle: '', kopfZeile: -1, start: 0, ncol: 0,
+  colGruppe: -1, colMail: 0, eintraege: [], leer: 0,
   filter: 'all', grenze: 150, sep: '; ', block: 0, frisch: false, wechsel: false
 };
 
 function fehlerZeigen(msg) { const el = $('#fehler'); el.hidden = true; el.textContent = msg; if (msg) { void el.offsetWidth; el.hidden = false; } }
 function buchstabe(i) { let s = ''; i++; while (i > 0) { s = String.fromCharCode(65 + (i - 1) % 26) + s; i = Math.floor((i - 1) / 26); } return s; }
 function spaltenName(c) {
-  const k = S.kopf ? String((S.zeilen[0] || [])[c] ?? '').trim() : '';
+  const k = S.kopfZeile >= 0 ? String((S.zeilen[S.kopfZeile] || [])[c] ?? '').trim() : '';
   return k || `Spalte ${buchstabe(c)}`;
 }
+const zelle = (z, c) => String((z || [])[c] ?? '').trim();
+const ADRESSE = /[^\s@]+@[^\s@]+\.[^\s@]+/;
+const MAIL_WORT = /mail|adresse|kontakt|empf/i;
+// Eine Zelle enthält eine Adresse – nicht aber eine Überschrift wie „E-Mail (@)“
+const istAdresse = s => s.includes('@') && !(MAIL_WORT.test(s) && !ADRESSE.test(s));
 
 function spaltenRaten() {
   const Z = S.zeilen;
   S.ncol = Z.slice(0, 300).reduce((m, z) => Math.max(m, z.length), 0);
-  S.kopf = Z.length > 1 && !(Z[0] || []).some(c => String(c).includes('@'));
-  const daten = Z.slice(S.kopf ? 1 : 0, 400);
-  const kopf = S.kopf ? Z[0].map(c => String(c ?? '')) : [];
+  const probe = Z.slice(0, 2000);
 
+  // E-Mail-Spalte: die mit den meisten Adressen
   let best = -1, bestN = 0;
   for (let c = 0; c < S.ncol; c++) {
-    const n = daten.filter(z => String(z[c] ?? '').includes('@')).length;
+    const n = probe.filter(z => istAdresse(zelle(z, c))).length;
     if (n > bestN) { bestN = n; best = c; }
   }
-  if (best < 0) best = kopf.findIndex(k => /mail/i.test(k));
-  S.colMail = best < 0 ? 0 : best;
 
-  let b = kopf.findIndex((k, c) => c !== S.colMail && /beruf/i.test(k));
-  if (b < 0) b = kopf.findIndex((k, c) => c !== S.colMail && /fachrichtung|sparte|gruppe/i.test(k));
-  if (b < 0) {
-    let bestQ = 1;
-    for (let c = 0; c < S.ncol; c++) {
-      if (c === S.colMail) continue;
-      const werte = daten.map(z => String(z[c] ?? '').trim()).filter(Boolean);
-      if (werte.length < daten.length * 0.6 || werte.every(w => /^[\d.,\s\/-]+$/.test(w))) continue;
-      const versch = new Set(werte).size;
-      if (versch > Math.max(1, werte.length / 3)) continue;
-      const q = versch / werte.length;
-      if (q < bestQ) { bestQ = q; b = c; }
-    }
+  // Überschrift: die letzte Zeile vor der ersten Adresse, die in der E-Mail-Spalte Text hat.
+  // Titelzeilen darüber werden übersprungen, Zeilen ohne Text in der E-Mail-Spalte gelten als Daten.
+  S.kopfZeile = -1;
+  if (best >= 0) {
+    const d0 = Z.findIndex(z => istAdresse(zelle(z, best)));
+    for (let i = d0 - 1; i >= 0; i--) if (zelle(Z[i], best)) { S.kopfZeile = i; break; }
+  } else {
+    S.kopfZeile = Z.length > 1 ? 0 : -1;
+    best = Math.max(0, (Z[0] || []).findIndex(c => MAIL_WORT.test(String(c ?? ''))));
   }
-  S.colBeruf = b;
+  S.colMail = best;
+  S.start = S.kopfZeile + 1;
+  gruppeRaten();
+}
+
+const GRUPPEN_WORT = /beruf|gruppe|kategorie|verteiler|abteilung|bereich|sparte|fachrichtung|klasse|jahrgang|referat|team|kurs|rolle|funktion|standort|region|status|typ\b|art\b/i;
+const KEIN_GRUPPEN_WORT = /anrede|geschlecht|name|telefon|tel\.|handy|mobil|stra(ss|ß)e|plz|datum|geb\.|geburt|^nr|^id$|lfd/i;
+
+// Gruppenspalte: Text, der sich wiederholt (Beruf, Abteilung …) – keine Namen, Nummern oder Daten
+function gruppeRaten() {
+  const daten = S.zeilen.slice(S.start, S.start + 400);
+  let best = -1, bestWert = 0;
+  for (let c = 0; c < S.ncol; c++) {
+    if (c === S.colMail) continue;
+    const werte = daten.map(z => zelle(z, c)).filter(Boolean);
+    const name = spaltenName(c);
+    const benannt = S.kopfZeile >= 0 && GRUPPEN_WORT.test(name);   // Überschrift sagt schon, dass es eine Gruppe ist
+    if (!werte.length || werte.length < daten.length * 0.5) continue;
+    if (werte.some(w => w.includes('@'))) continue;
+    if (werte.every(w => /^[\d.,\s\/:-]+$/.test(w))) continue;
+    const zaehl = new Map();
+    for (const w of werte) { const k = w.toLowerCase(); zaehl.set(k, (zaehl.get(k) || 0) + 1); }
+    if (!benannt && (werte.length < 2 || zaehl.size < 2)) continue;
+    let wiederholt = 0;
+    for (const n of zaehl.values()) if (n > 1) wiederholt += n;
+    let wert = wiederholt / werte.length + Math.min(zaehl.size, 6) * 0.02;
+    if (zaehl.size > werte.length * 0.8) wert -= 0.5;
+    if (benannt) wert += 1;
+    if (S.kopfZeile >= 0 && KEIN_GRUPPEN_WORT.test(name)) wert -= 0.6;
+    if (wert > bestWert) { bestWert = wert; best = c; }
+  }
+  S.colGruppe = bestWert > 0.2 ? best : -1;
 }
 
 function zuordnungZeigen() {
   $('#map').hidden = false;
-  const n = S.zeilen.length - (S.kopf ? 1 : 0);
-  $('#quelle').textContent = `${S.quelle}: ${mz(n, 'Datenzeile', 'Datenzeilen')}`;
-  $('#hdr').checked = S.kopf;
+  const n = Math.max(0, S.zeilen.length - S.start);
+  $('#quelle').textContent = `${S.quelle}: ${mz(n, 'Datenzeile', 'Datenzeilen')}` +
+    (S.kopfZeile > 0 ? ` – ${mz(S.kopfZeile, 'Zeile', 'Zeilen')} über der Überschrift übersprungen` : '');
+  $('#hdr').checked = S.kopfZeile >= 0;
+  const hz = S.kopfZeile >= 0 ? S.kopfZeile : S.start;
+  $('#hdrText').textContent = hz === 0 ? 'Erste Zeile enthält Überschriften' : `Zeile ${hz + 1} enthält Überschriften`;
   const wrap = $('#blattWrap');
   wrap.hidden = !(S.mappe && S.mappe.blaetter.length > 1);
   if (!wrap.hidden) $('#blatt').innerHTML = S.mappe.blaetter.map((b, i) => `<option value="${i}"${i === S.blatt ? ' selected' : ''}>${esc(b.name)}</option>`).join('');
 
-  const beispiel = c => { const z = S.zeilen[S.kopf ? 1 : 0] || []; const v = String(z[c] ?? '').trim(); return v ? ` (z. B. ${v.slice(0, 28)})` : ''; };
-  const opt = (c, sel) => `<option value="${c}"${c === sel ? ' selected' : ''}>${esc(spaltenName(c) + (S.kopf ? '' : beispiel(c)))}</option>`;
-  let ob = `<option value="-1"${S.colBeruf < 0 ? ' selected' : ''}>Keine – alle Adressen in eine Liste</option>`, om = '';
-  for (let c = 0; c < S.ncol; c++) { ob += opt(c, S.colBeruf); om += opt(c, S.colMail); }
-  $('#colBeruf').innerHTML = ob;
+  const beispiel = c => { const v = zelle(S.zeilen[S.start], c); return v ? ` (z. B. ${v.slice(0, 28)})` : ''; };
+  const opt = (c, sel) => `<option value="${c}"${c === sel ? ' selected' : ''}>${esc(spaltenName(c) + (S.kopfZeile >= 0 ? '' : beispiel(c)))}</option>`;
+  let ob = `<option value="-1"${S.colGruppe < 0 ? ' selected' : ''}>Nicht aufteilen – alle Adressen in eine Liste</option>`, om = '';
+  for (let c = 0; c < S.ncol; c++) { ob += opt(c, S.colGruppe); om += opt(c, S.colMail); }
+  $('#colGruppe').innerHTML = ob;
   $('#colMail').innerHTML = om;
   vorschauZeigen();
 }
 
 function vorschauZeigen() {
-  const rolle = c => c === S.colMail ? 'E-Mail' : c === S.colBeruf ? 'Beruf' : '';
+  const rolle = c => c === S.colMail ? 'E-Mail' : c === S.colGruppe ? 'Gruppe' : '';
   let h = '<thead><tr>';
   for (let c = 0; c < S.ncol; c++) h += `<th class="${rolle(c) ? 'gew' : ''}">${esc(spaltenName(c))}${rolle(c) ? `<span class="rolle">wird als ${rolle(c)} gelesen</span>` : ''}</th>`;
   h += '</tr></thead><tbody>';
-  const start = S.kopf ? 1 : 0;
-  for (const z of S.zeilen.slice(start, start + 4)) {
+  for (const z of S.zeilen.slice(S.start, S.start + 4)) {
     h += '<tr>';
     for (let c = 0; c < S.ncol; c++) h += `<td class="${rolle(c) ? 'gew' : ''}">${esc(z[c] ?? '')}</td>`;
     h += '</tr>';
@@ -924,14 +991,14 @@ function auswerten() {
   const Z = S.zeilen;
   let id = 0;
   S.eintraege = []; S.leer = 0;
-  for (let i = S.kopf ? 1 : 0; i < Z.length; i++) {
+  for (let i = S.start; i < Z.length; i++) {
     const z = Z[i] || [];
-    const zelle = String(z[S.colMail] ?? '').trim();
-    if (!zelle || PLATZHALTER.test(zelle)) { if (z.some(c => String(c ?? '').trim())) S.leer++; continue; }
-    const beruf = S.colBeruf < 0 ? '' : String(z[S.colBeruf] ?? '').replace(/\s+/g, ' ').trim();
-    for (const teil of zelleTeilen(zelle)) {
+    const inhalt = zelle(z, S.colMail);
+    if (!inhalt || PLATZHALTER.test(inhalt)) { if (z.some(c => String(c ?? '').trim())) S.leer++; continue; }
+    const gruppe = S.colGruppe < 0 ? '' : zelle(z, S.colGruppe).replace(/\s+/g, ' ');
+    for (const teil of zelleTeilen(inhalt)) {
       const a = pruefe(teil);
-      S.eintraege.push(Object.assign(a, { id: id++, zeile: i + 1, beruf, wert: a.cleaned, aus: false, entschieden: false }));
+      S.eintraege.push(Object.assign(a, { id: id++, zeile: i + 1, gruppe, wert: a.cleaned, aus: false, entschieden: false }));
     }
   }
   S.grenze = 150; S.filter = 'all'; S.frisch = true;
@@ -990,7 +1057,7 @@ function zeileHtml(e, i, kl) {
   const [zk, zt] = zustand(e);
   const offen = offenerVorschlag(e);
   return `<div class="rv k-${e.kind}${e.aus ? ' ist-aus' : ''}${kl ? ' ' + kl : ''}" data-id="${e.id}"${kl ? ` style="--i:${Math.min(i, 14)}"` : ''}>
-    <div class="rv-meta"><span class="chip ${etikett(e)[0]}">${etikett(e)[1]}</span><span>Zeile ${e.zeile}</span><span class="bf">${esc(e.beruf || (S.colBeruf < 0 ? '' : 'ohne Berufsangabe'))}</span></div>
+    <div class="rv-meta"><span class="chip ${etikett(e)[0]}">${etikett(e)[1]}</span><span>Zeile ${e.zeile}</span><span class="bf">${esc(e.gruppe || (S.colGruppe < 0 ? '' : 'ohne Gruppe'))}</span></div>
     <div class="rv-body">
       <div class="zeile"><span class="lab">Eingetragen</span><code>${ha}</code></div>
       ${e.vorschlag ? `<div class="zeile"><span class="lab">Vorschlag</span><code>${hb}</code></div>` : ''}
@@ -1021,14 +1088,15 @@ function pruefungInhalt() {
   const auff = n - z.ok;
 
   if (!n) {
-    $('#summe').innerHTML = `<strong>In der gewählten Spalte stehen keine E-Mail-Adressen.</strong> Oben bei „Spalte mit der E-Mail-Adresse“ eine andere Spalte wählen.`;
+    $('#summe').innerHTML = `<strong>In der gewählten Spalte stehen keine E-Mail-Adressen.</strong> Oben bei „Spalte mit den E-Mail-Adressen“ eine andere Spalte wählen.`;
     $('#pruef').hidden = true;
     return;
   }
   $('#pruef').hidden = false;
-  const berufe = new Set(E.map(e => e.beruf.toLowerCase())).size;
-  $('#summe').innerHTML = `<strong>${zahl(n)} ${n === 1 ? 'Adresse' : 'Adressen'}</strong> gelesen${S.colBeruf >= 0 ? ` in ${mz(berufe, 'Beruf', 'Berufen')}` : ''}, ` +
-    `${z.ok.toLocaleString('de-DE')} davon ohne Befund.` + (S.leer ? ` ${mz(S.leer, 'Zeile', 'Zeilen')} ohne Adresse übersprungen.` : '');
+  const gruppen = new Set(E.map(e => e.gruppe.toLowerCase())).size;
+  $('#summe').innerHTML = `<strong>${zahl(n)} ${n === 1 ? 'Adresse' : 'Adressen'}</strong> gelesen${S.colGruppe >= 0 ? ` in ${mz(gruppen, 'Gruppe', 'Gruppen')}` : ''}, ` +
+    `${z.ok.toLocaleString('de-DE')} davon ohne Befund.` + (S.leer ? ` ${mz(S.leer, 'Zeile', 'Zeilen')} ohne Adresse übersprungen.` : '') +
+    (S.colGruppe < 0 && S.ncol > 1 ? ' Alle Adressen kommen in eine Liste – zum Aufteilen oben bei „Listen aufteilen nach“ eine Spalte wählen.' : '');
 
   $('#balken').innerHTML = ['ok', 'auto', 'suggest', 'invalid'].filter(k => z[k]).map((k, i) => `<span class="b-${k}" style="flex:${z[k]};--i:${i}"></span>`).join('');
 
@@ -1052,10 +1120,10 @@ function pruefungInhalt() {
 
 function gruppenBilden() {
   const map = new Map();
-  const alle = { name: 'Alle Berufe zusammen', liste: [], gesehen: new Set(), doppelt: 0, fehlt: 0, gesamt: true };
+  const alle = { name: 'Alle Gruppen zusammen', liste: [], gesehen: new Set(), doppelt: 0, fehlt: 0, gesamt: true };
   for (const e of S.eintraege) {
-    const key = e.beruf.toLowerCase();
-    if (!map.has(key)) map.set(key, { name: e.beruf || (S.colBeruf < 0 ? 'Alle Adressen' : 'Ohne Berufsangabe'), liste: [], gesehen: new Set(), doppelt: 0, fehlt: 0 });
+    const key = e.gruppe.toLowerCase();
+    if (!map.has(key)) map.set(key, { name: e.gruppe || (S.colGruppe < 0 ? 'Alle Adressen' : 'Ohne Gruppe'), liste: [], gesehen: new Set(), doppelt: 0, fehlt: 0 });
     const g = map.get(key);
     if (e.aus || formatFehler(e.wert)) { g.fehlt++; alle.fehlt++; continue; }
     const k = e.wert.toLowerCase();
@@ -1158,6 +1226,7 @@ $('#paste').addEventListener('change', e => { if (e.target.value.trim()) { textL
 
 $('#demo').addEventListener('click', () => {
   const d = [
+    ['Azubi-Liste 2026 (erfundene Daten)', '', ''],
     ['Name', 'Ausbildungsberuf', 'E-Mail'],
     ['Beispiel, Erika', 'Gärtner/in – Zierpflanzenbau', 'erika.beispiel@gmx.de'],
     ['Muster, Jonas', 'Gärtner/in – Zierpflanzenbau', 'jonas.muster@gmial.com'],
@@ -1185,9 +1254,13 @@ $('#blatt').addEventListener('change', async e => {
   try { S.blatt = +e.target.value; S.zeilen = await S.mappe.blattLaden(S.blatt); nachLaden(); }
   catch (err) { fehlerZeigen(err.message); }
 });
-$('#colBeruf').addEventListener('change', e => { S.colBeruf = +e.target.value; vorschauZeigen(); auswerten(); });
-$('#colMail').addEventListener('change', e => { S.colMail = +e.target.value; vorschauZeigen(); auswerten(); });
-$('#hdr').addEventListener('change', e => { S.kopf = e.target.checked; zuordnungZeigen(); auswerten(); });
+$('#colGruppe').addEventListener('change', e => { S.colGruppe = +e.target.value; vorschauZeigen(); auswerten(); });
+$('#colMail').addEventListener('change', e => { S.colMail = +e.target.value; if (S.colGruppe === S.colMail) S.colGruppe = -1; zuordnungZeigen(); auswerten(); });
+$('#hdr').addEventListener('change', e => {
+  if (e.target.checked) { S.kopfZeile = S.start; S.start++; if (S.colGruppe < 0) gruppeRaten(); }
+  else { S.start = S.kopfZeile; S.kopfZeile = -1; }
+  zuordnungZeigen(); auswerten();
+});
 
 $('#filter').addEventListener('click', e => {
   const b = e.target.closest('[data-f]');
@@ -1239,11 +1312,11 @@ $('#alleUeb').addEventListener('click', () => {
 });
 $('#logKopie').addEventListener('click', async e => {
   const z = v => String(v).replace(/[\t\r\n]+/g, ' ');
-  const zeilen = [['Zeile', 'Beruf', 'Eingetragen', 'Verwendet', 'Befund'].join('\t')];
+  const zeilen = [['Zeile', 'Gruppe', 'Eingetragen', 'Verwendet', 'Befund'].join('\t')];
   for (const en of S.eintraege) {
     if (en.kind === 'ok') continue;
     const verw = en.aus || formatFehler(en.wert) ? '' : en.wert;
-    zeilen.push([en.zeile, z(en.beruf), z(en.original), z(verw), z(befund(en))].join('\t'));
+    zeilen.push([en.zeile, z(en.gruppe), z(en.original), z(verw), z(befund(en))].join('\t'));
   }
   rueckmeldung(e.currentTarget, await kopieren(zeilen.join('\r\n')), 'Korrekturliste kopiert – in Excel mit Strg+V einfügen.', 0, 'Kopieren ist in diesem Fenster gesperrt.');
 });
