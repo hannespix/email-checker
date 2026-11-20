@@ -341,7 +341,7 @@ body { min-height: 100vh; }
       <div>
         <h2>So geht’s</h2>
         <ol>
-          <li><b>Daten laden:</b> Excel-Datei hineinziehen – oder in Excel die Spalten markieren, kopieren und unten einfügen.</li>
+          <li><b>Daten laden:</b> Excel-Datei hineinziehen – oder in Excel die Spalten markieren, kopieren und unten einfügen. Auch Adressen aus dem An-, Cc- oder Bcc-Feld von Outlook lassen sich direkt einfügen.</li>
           <li><b>Prüfen:</b> Vorschläge durchsehen und übernehmen. Rot markierte Adressen fehlen in der Liste, bis sie korrigiert sind.</li>
           <li><b>Kopieren:</b> In Outlook eine neue E-Mail öffnen und die Adressen mit Strg+V ins Bcc-Feld einfügen.</li>
         </ol>
@@ -363,8 +363,8 @@ body { min-height: 100vh; }
           <input type="file" id="file" accept=".xlsx,.xlsm,.csv,.tsv,.txt">
         </label>
         <div class="einf">
-          <label for="paste">Oder Zellen aus Excel einfügen</label>
-          <textarea id="paste" placeholder="In Excel die Spalten markieren (mit Überschriften), Strg+C drücken, hier klicken und Strg+V drücken."></textarea>
+          <label for="paste">Oder Zellen aus Excel oder Adressen aus Outlook einfügen</label>
+          <textarea id="paste" placeholder="In Excel die Spalten markieren (mit Überschriften) oder in Outlook ins An-, Cc- oder Bcc-Feld klicken und Strg+A drücken. Dann Strg+C, hier klicken und Strg+V."></textarea>
         </div>
       </div>
       <p class="demo klein">Erst ausprobieren? <button type="button" class="textlink" id="demo">Erfundene Beispieldaten laden</button></p>
@@ -817,6 +817,55 @@ function textTabelle(text) {
   while (zeilen.length && zeilen[zeilen.length - 1].every(f => !f.trim())) zeilen.pop();
   return zeilen;
 }
+/* Adressliste aus Outlook (An/Cc/Bcc-Feld) oder einer einzelnen Zelle:
+   „Name <a@b.de>; "Müller, Hans" <c@d.de>, e@f.de …“ – alles in einer Zeile.
+   Liefert Zeilen [Name, E-Mail] mit Überschrift oder null, wenn der Text eher eine Tabelle ist. */
+function adresslisteLesen(text) {
+  text = text.replace(/^﻿/, '');
+  if (text.includes('\t')) return null;
+  // Nur wenn mindestens eine Zeile mehrere Adressen enthält (sonst ist es eine normale Spalte)
+  if (!text.split(/\r?\n/).some(z => (z.match(/@/g) || []).length >= 2)) return null;
+  // Zerlegen an ; , und Zeilenumbruch – nicht innerhalb von "…" oder <…>
+  const stuecke = [];
+  let feld = '', q = false, spitz = false;
+  for (const c of text) {
+    if (q) { if (c === '"') q = false; feld += c; continue; }
+    if (c === '"') { q = true; feld += c; continue; }
+    if (c === '<') spitz = true; else if (c === '>') spitz = false;
+    if (!spitz && (c === ';' || c === ',' || c === '\n' || c === '\r')) { stuecke.push({ t: feld, komma: c === ',' }); feld = ''; continue; }
+    feld += c;
+  }
+  stuecke.push({ t: feld, komma: false });
+  // „Müller, Hans <h@x.de>“ ohne Anführungszeichen: Namensteil vor einem Komma gehört zum nächsten Eintrag
+  const eintraege = [];
+  let rest = '';
+  for (const s of stuecke) {
+    const t = s.t.trim();
+    if (!t) continue;
+    if (s.komma && !t.includes('@')) { rest = rest ? rest + ', ' + t : t; continue; }
+    eintraege.push(rest ? rest + ', ' + t : t); rest = '';
+  }
+  if (rest) eintraege.push(rest);
+  // Mehrere Adressen nur durch Leerzeichen getrennt
+  const liste = [];
+  for (const e of eintraege) {
+    if (!e.includes('<') && (e.match(/@/g) || []).length >= 2) {
+      const sub = e.split(/\s+/).filter(Boolean);
+      if (sub.every(x => (x.match(/@/g) || []).length === 1)) { liste.push(...sub); continue; }
+    }
+    liste.push(e);
+  }
+  const mitAt = liste.filter(e => e.includes('@')).length;
+  // Nur eine Adressliste, wenn es mehrere Einträge gibt und (fast) alle eine Adresse tragen
+  if (mitAt < 2 || mitAt < liste.length * 0.8) return null;
+  const zeilen = liste.map(e => {
+    const m = e.match(/^(.*?)<\s*([^<>]*?)\s*>\s*$/);
+    if (!m) return ['', e];
+    return [m[1].trim().replace(/^["'„“]+|["'“”]+$/g, '').trim(), m[2]];
+  });
+  if (zeilen.every(z => !z[0])) return [['E-Mail'], ...zeilen.map(z => [z[1]])];
+  return [['Name', 'E-Mail'], ...zeilen];
+}
 function bytesZuText(u8) {
   try { return new TextDecoder('utf-8', { fatal: true }).decode(u8); }
   catch (e) { return new TextDecoder('windows-1252').decode(u8); }
@@ -982,8 +1031,9 @@ async function dateiLaden(datei) {
 
 function textLaden(text, quelle) {
   S.mappe = null;
-  S.zeilen = textTabelle(text);
-  S.quelle = quelle;
+  const liste = adresslisteLesen(text);
+  S.zeilen = liste || textTabelle(text);
+  S.quelle = liste ? quelle + ' (Adressliste)' : quelle;
   nachLaden();
 }
 
